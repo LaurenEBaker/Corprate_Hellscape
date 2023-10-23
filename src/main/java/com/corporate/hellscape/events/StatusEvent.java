@@ -14,7 +14,9 @@ public abstract class StatusEvent extends Event {
     //      as its argument. It's okay if the testing class you make always
     //      returns true or false or something, since the character class
     //      doesn't have any fields yet
-    public abstract boolean isTriggered(Character character);
+    public boolean isTriggered(Hellscape hellscape) {
+        return true;
+    }
 
     //TODO: Remove this and let child classes that implement StatusEvent handle their own action
     //      (e.g.: Your testing class)
