@@ -11,6 +11,7 @@ import com.corporate.hellscape.events.EventSpawner;
 import com.corporate.hellscape.events.StatusEvent;
 import com.corporate.hellscape.events.TimedEvent;
 import com.corporate.hellscape.character.Character;
+import com.corporate.hellscape.events.TimedEventImp;
 
 public class Hellscape {
 
