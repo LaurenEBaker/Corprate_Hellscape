@@ -11,6 +11,10 @@ public abstract class TimedEvent extends Event {
     //NOTE: To be used by child classes to set their timeout
     protected TimedEvent(int delayDurationSeconds) {}
 
+    public TimedEvent(){
+        
+    }
+
     //TODO: Implement
     public boolean isTriggered(Hellscape hellscape, Character character) { return false; }
 
