@@ -40,7 +40,7 @@ public class Hellscape {
 
         //TODO: Currently using TimedEvent as a concrete class so that things will compile
         //      For issue #7, replace this with your concrete class that *implements* TimedEvent
-        _eventList.add(new TimedEvent());
+        _eventList.add(new TimedEventImp(0, null));
 
         //TODO: Currently using StatusEvent as a concrete class so that things will compile
         //      For issue #6, replace this with your concrete class that *implements* StatusEvent
