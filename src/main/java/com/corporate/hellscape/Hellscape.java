@@ -5,13 +5,14 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
-
 import com.corporate.hellscape.events.Event;
 import com.corporate.hellscape.events.EventSpawner;
+import com.corporate.hellscape.character.Character;
+import com.corporate.hellscape.events.TimedEventImp;
 import com.corporate.hellscape.events.ExampleSelfSpawningEvent;
 import com.corporate.hellscape.events.StatusEventHungerLow;
-import com.corporate.hellscape.events.TimedEvent;
-import com.corporate.hellscape.character.Character;
+
+
 
 public class Hellscape {
 
@@ -39,16 +40,15 @@ public class Hellscape {
 
     private Hellscape() {
 
+        _eventList.add(new TimedEventImp(this));
+
         //TODO: Remove this class in the future, it's only here for example purposes
         _eventList.add(new ExampleSelfSpawningEvent(true));
-
-        //TODO: Currently using TimedEvent as a concrete class so that things will compile
-        //      For issue #7, replace this with your concrete class that *implements* TimedEvent
-        _eventList.add(new TimedEvent());
 
         //TODO: Currently using StatusEvent as a concrete class so that things will compile
         //      For issue #6, replace this with your concrete class that *implements* StatusEvent
         _eventList.add(new StatusEventHungerLow());
+
     }
 
     //NOTE: When implementing #6, get character from here
@@ -60,6 +60,8 @@ public class Hellscape {
     public LocalDateTime getGameTime() {
         return _gameTime;
     };
+
+
 
     //Add an event to the pending new list for later insertion
     //into the general events list
@@ -74,6 +76,7 @@ public class Hellscape {
 
         _eventList.addAll(_pendingNewEvents);
     }
+
 
     //Simulate a single second of game time
     private void SimulateOnce() {
@@ -91,6 +94,7 @@ public class Hellscape {
 
             _eventList.add(newEvent);
         }
+
 
         //NOTE: We do things this way because Java will give you a runtime
         //      exception if you try to modify the thing being iterated
