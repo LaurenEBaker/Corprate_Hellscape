@@ -8,7 +8,6 @@ import java.util.Collection;
 
 import com.corporate.hellscape.events.Event;
 import com.corporate.hellscape.events.EventSpawner;
-import com.corporate.hellscape.events.StatusEvent;
 import com.corporate.hellscape.events.StatusEventHungerLow;
 import com.corporate.hellscape.events.TimedEvent;
 import com.corporate.hellscape.character.Character;
