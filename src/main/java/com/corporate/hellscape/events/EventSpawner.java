@@ -5,13 +5,12 @@ import java.util.Random;
 import com.corporate.hellscape.Hellscape;
 
 public class EventSpawner {
-    
-    //TODO: Implement for #5 -- ok for now to just return a basic/empty
-    Random ran = new Random();
-	int num1 = ran.nextInt(20); {
-	
 
-	switch(num1%20) {
+
+
+    public Event getPendingEvent(Hellscape hellscape) { 
+        Random ran = new Random();
+	int num1 = ran.nextInt(20); switch(num1%20) {
 	case 0: 
 		System.out.println("you friend bought you a nice gift");
 		//Stress =- 5;
@@ -102,18 +101,8 @@ public class EventSpawner {
 		//nothing happened;
 		break;
 	
-	}
+	}; 
+    {return null;}
+} 
 }
-    // @Override
-    // public boolean isTriggered(Hellscape hellscape) {
-    //     throw new UnsupportedOperationException("Unimplemented method 'isTriggered'");
-    // }
 
-    // @Override
-    // protected void triggerAction(Hellscape hellscape) {
-    //     throw new UnsupportedOperationException("Unimplemented method 'triggerAction'");
-    // }
-
-    //      Return null if there's no event to be spawned
-    public Event getPendingEvent(Hellscape hellscape) { return null; }
-}
