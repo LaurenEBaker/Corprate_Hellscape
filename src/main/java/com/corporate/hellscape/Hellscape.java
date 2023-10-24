@@ -9,7 +9,7 @@ import java.util.Collection;
 import com.corporate.hellscape.events.Event;
 import com.corporate.hellscape.events.EventSpawner;
 import com.corporate.hellscape.events.ExampleSelfSpawningEvent;
-import com.corporate.hellscape.events.StatusEvent;
+import com.corporate.hellscape.events.StatusEventHungerLow;
 import com.corporate.hellscape.events.TimedEvent;
 import com.corporate.hellscape.character.Character;
 
@@ -48,7 +48,7 @@ public class Hellscape {
 
         //TODO: Currently using StatusEvent as a concrete class so that things will compile
         //      For issue #6, replace this with your concrete class that *implements* StatusEvent
-        _eventList.add(new StatusEvent());
+        _eventList.add(new StatusEventHungerLow());
     }
 
     //NOTE: When implementing #6, get character from here
