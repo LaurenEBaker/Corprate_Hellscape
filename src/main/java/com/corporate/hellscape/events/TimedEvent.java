@@ -1,5 +1,6 @@
 package com.corporate.hellscape.events;
 
+
 import java.time.LocalDateTime;
 
 import com.corporate.hellscape.Hellscape;
@@ -15,6 +16,5 @@ public abstract class TimedEvent extends Event {
 
     //TODO: Implement
     public boolean isTriggered(Hellscape hellscape, Character character) { return false; }
-
 
 }
