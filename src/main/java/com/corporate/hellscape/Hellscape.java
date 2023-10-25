@@ -40,10 +40,7 @@ public class Hellscape {
 
     private Hellscape() {
 
-
-        //TODO: Currently using TimedEvent as a concrete class so that things will compile
-        //      For issue #7, replace this with your concrete class that *implements* TimedEvent
-        _eventList.add(new TimedEventImp(0, null));
+        _eventList.add(new TimedEventImp(this));
 
         //TODO: Remove this class in the future, it's only here for example purposes
         _eventList.add(new ExampleSelfSpawningEvent(true));
