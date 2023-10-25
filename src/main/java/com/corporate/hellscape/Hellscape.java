@@ -28,7 +28,8 @@ public class Hellscape {
         //Main game loop
         while(true) {
 
-            hellscape.SimulateOnce();
+            if(hellscape.SimulateOnce())
+                break;
         }
     }
 
@@ -42,6 +43,8 @@ public class Hellscape {
     private Collection<Event> _eventList = new ArrayList<Event>();
     private Collection<Event> _pendingNewEvents = new ArrayList<Event>();
     private EventSpawner _eventSpawner = new EventSpawner();
+
+    private boolean gameOver = false;
 
     private Hellscape() {
 
@@ -88,12 +91,12 @@ public class Hellscape {
 
 
     //Simulate a single second of game time
-    private void SimulateOnce() {
+    private boolean SimulateOnce() {
 
         for(Event event : _eventList) 
             event.process(this);
 
-        while(true) {
+        while(!gameOver) {
 
             //TODO: Implement random events in #5
             Event newEvent = _eventSpawner.getPendingEvent(this);
@@ -104,12 +107,19 @@ public class Hellscape {
             _eventList.add(newEvent);
         }
 
-
         //NOTE: We do things this way because Java will give you a runtime
         //      exception if you try to modify the thing being iterated
         //      *while* it's being iterated over
         _addNewlyCreatedEvents();
 
         _gameTime = _gameTime.plusSeconds(1);
+
+        if(_character.getHealth() <= 0)
+            endGame();
+        return gameOver; 
+    }
+
+    private void endGame(){
+        gameOver = true;
     }
 }
