@@ -40,7 +40,6 @@ public class Hellscape {
 
     private Hellscape() {
 
-<<<<<<< HEAD
 
         //TODO: Currently using TimedEvent as a concrete class so that things will compile
         //      For issue #7, replace this with your concrete class that *implements* TimedEvent
@@ -49,13 +48,6 @@ public class Hellscape {
         //TODO: Remove this class in the future, it's only here for example purposes
         _eventList.add(new ExampleSelfSpawningEvent(true));
 
-=======
-        _eventList.add(new TimedEventImp(this));
-
-        //TODO: Remove this class in the future, it's only here for example purposes
-        _eventList.add(new ExampleSelfSpawningEvent(true));
-
->>>>>>> c00e3b69ee82bc908a0a098699992308b4a98d68
         //TODO: Currently using StatusEvent as a concrete class so that things will compile
         //      For issue #6, replace this with your concrete class that *implements* StatusEvent
         _eventList.add(new StatusEventHungerLow());
