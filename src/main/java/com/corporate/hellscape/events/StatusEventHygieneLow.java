@@ -10,8 +10,6 @@ public class StatusEventHygieneLow extends StatusEvent{
     }
 
     public boolean isTriggered(Character character) {
-        if(character.getHygiene() < 50)
-            return true;
-        return false;
+        return (character.getHygiene() < 50);
     }
 }

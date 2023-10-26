@@ -10,8 +10,6 @@ public class StatusEventSleepLow extends StatusEvent{
     }
 
     public boolean isTriggered(Character character) {
-        if(character.getSleep() < 50)
-            return true;
-        return false;
+        return (character.getSleep() < 50);
     }
 }

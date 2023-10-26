@@ -10,8 +10,6 @@ public class StatusEventStressHigh extends StatusEvent{
     }
 
     public boolean isTriggered(Character character) {
-        if(character.getStress() > 50)
-            return true;
-        return false;
+        return (character.getStress() > 50);
     }
 }

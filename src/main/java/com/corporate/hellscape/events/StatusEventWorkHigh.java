@@ -10,8 +10,6 @@ public class StatusEventWorkHigh extends StatusEvent{
     }
 
     public boolean isTriggered(Character character) {
-        if(character.getWorkLoad() > 50)
-            return true;
-        return false;
+        return (character.getWorkLoad() > 50);
     }
 }

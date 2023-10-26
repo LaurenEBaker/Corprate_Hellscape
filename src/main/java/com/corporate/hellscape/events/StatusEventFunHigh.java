@@ -10,8 +10,6 @@ public class StatusEventFunHigh extends StatusEvent{
     }
 
     public boolean isTriggered(Character character) {
-        if(character.getFun() > 50)
-            return true;
-        return false;
+        return (character.getFun() > 50);
     }
 }
