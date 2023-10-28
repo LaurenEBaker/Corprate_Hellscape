@@ -10,7 +10,12 @@ import com.corporate.hellscape.events.EventSpawner;
 import com.corporate.hellscape.character.Character;
 import com.corporate.hellscape.events.TimedEventImp;
 import com.corporate.hellscape.events.ExampleSelfSpawningEvent;
+import com.corporate.hellscape.events.StatusEventFunHigh;
 import com.corporate.hellscape.events.StatusEventHungerLow;
+import com.corporate.hellscape.events.StatusEventHygieneLow;
+import com.corporate.hellscape.events.StatusEventSleepLow;
+import com.corporate.hellscape.events.StatusEventStressHigh;
+import com.corporate.hellscape.events.StatusEventWorkHigh;
 
 
 
@@ -39,6 +44,8 @@ public class Hellscape {
     private Collection<Event> _pendingDeletedEvents = new ArrayList<Event>();
     private EventSpawner _eventSpawner = new EventSpawner();
 
+    private boolean gameOver = false;
+
     private Hellscape() {
 
         _eventList.add(new TimedEventImp(this));
@@ -48,7 +55,12 @@ public class Hellscape {
 
         //TODO: Currently using StatusEvent as a concrete class so that things will compile
         //      For issue #6, replace this with your concrete class that *implements* StatusEvent
+        _eventList.add(new StatusEventFunHigh());
         _eventList.add(new StatusEventHungerLow());
+        _eventList.add(new StatusEventHygieneLow());
+        _eventList.add(new StatusEventSleepLow());
+        _eventList.add(new StatusEventStressHigh());
+        _eventList.add(new StatusEventWorkHigh());
     }
 
     //NOTE: When implementing #6, get character from here
@@ -93,7 +105,7 @@ public class Hellscape {
     }
 
     //Simulate a single second of game time
-    private void SimulateOnce() {
+    private boolean SimulateOnce() {
 
         for(Event event : _eventList) {
 
@@ -120,5 +132,13 @@ public class Hellscape {
         _addNewlyCreatedEvents();
 
         _gameTime = _gameTime.plusSeconds(1);
+
+        if(_character.getHealth() <= 0)
+            endGame();
+        return gameOver;
+    }
+
+    private void endGame(){
+        gameOver = true;
     }
 }
