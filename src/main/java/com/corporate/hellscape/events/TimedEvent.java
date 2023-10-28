@@ -8,8 +8,14 @@ public abstract class TimedEvent extends Event {
 
     private LocalDateTime eventTime;
 
-    protected TimedEvent(int delayDurationSeconds, Hellscape hellscape) {
+    protected TimedEvent() {}
+
+    protected void SetDelay(int delayDurationSeconds, Hellscape hellscape) {
         eventTime = hellscape.getGameTime().plusSeconds(delayDurationSeconds);
+    }
+
+    protected TimedEvent(int delayDurationSeconds, Hellscape hellscape) {
+        SetDelay(delayDurationSeconds, hellscape);
     }
 
     public boolean isTriggered(Hellscape hellscape) {
