@@ -10,8 +10,6 @@ public class StatusEventHungerLow extends StatusEvent{
     }
 
     public boolean isTriggered(Character character) {
-        if(character.getHunger() < 50)
-            return true;
-        return false;
+        return (character.getHunger() < 50);
     }
 }
