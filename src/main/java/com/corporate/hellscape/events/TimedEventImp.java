@@ -11,6 +11,6 @@ public class TimedEventImp extends TimedEvent {
 
     protected void triggerAction(Hellscape hellscape) {
 
-        throw new UnsupportedOperationException("TimedEventImp triggerd after 10 game seconds");
+       throw new UnsupportedOperationException("TimedEventImp triggerd after 10 game seconds");
     }
 }
