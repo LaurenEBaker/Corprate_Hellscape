@@ -28,7 +28,8 @@ public class Hellscape {
         //Main game loop
         while(true) {
 
-            hellscape.SimulateOnce();
+            if(hellscape.SimulateOnce())
+                break;
         }
     }
 
@@ -135,6 +136,7 @@ public class Hellscape {
 
         if(_character.getHealth() <= 0)
             endGame();
+            
         return gameOver;
     }
 
