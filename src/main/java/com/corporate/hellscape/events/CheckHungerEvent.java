@@ -5,7 +5,7 @@ import com.corporate.hellscape.character.Character;
 
 public class CheckHungerEvent extends TimedEvent {
 
-    protected CheckHungerEvent(int delayDurationSeconds, Hellscape hellscape, Character character) {
+    public CheckHungerEvent(int delayDurationSeconds, Hellscape hellscape, Character character) {
         super(30, hellscape);
         character = hellscape.getCharacter();
 
@@ -15,6 +15,7 @@ public class CheckHungerEvent extends TimedEvent {
     protected void triggerAction(Hellscape hellscape) {
        Character character = hellscape.getCharacter();
        character.increaseHunger();
+       hellscape.registerEvent(this);
     }
     
 }

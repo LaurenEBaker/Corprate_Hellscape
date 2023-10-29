@@ -11,6 +11,7 @@ import com.corporate.hellscape.character.Character;
 import com.corporate.hellscape.events.TimedEventImp;
 import com.corporate.hellscape.events.ExampleSelfSpawningEvent;
 import com.corporate.hellscape.events.StatusEventHungerLow;
+import com.corporate.hellscape.events.CheckHungerEvent;
 
 
 
@@ -40,7 +41,7 @@ public class Hellscape {
 
     private Hellscape() {
 
-        _eventList.add(new TimedEventImp(this));
+        _eventList.add(new CheckHungerEvent(30, this, _character));
 
         //TODO: Remove this class in the future, it's only here for example purposes
         _eventList.add(new ExampleSelfSpawningEvent(true));
