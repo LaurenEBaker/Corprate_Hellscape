@@ -8,7 +8,7 @@
             "type": "java",
             "name": "Hellscape",
             "request": "launch",
-            "mainClass": "com.corporate.hellscape.Hellscape",
+            "mainClass": "com.corporate.hellscape.CLIApplication",
             "projectName": "corporate-hellscape"
         }
     ]
