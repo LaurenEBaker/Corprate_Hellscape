@@ -84,11 +84,7 @@ public class Hellscape {
     }
 
     //Simulate a single second of game time
-<<<<<<< HEAD
-    public void SimulateOnce() {
-=======
-    private boolean SimulateOnce() {
->>>>>>> main
+    public boolean SimulateOnce() {
 
         for(Event event : _eventList) {
 
