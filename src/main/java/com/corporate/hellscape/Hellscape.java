@@ -41,7 +41,7 @@ public class Hellscape {
     private Collection<Event> _pendingDeletedEvents = new ArrayList<Event>();
     private EventSpawner _eventSpawner = new EventSpawner();
 
-    private boolean gameOver = false;
+    private boolean _gameOver = false;
 
     private Hellscape() {
 
@@ -128,10 +128,10 @@ public class Hellscape {
         if(_character.getHealth() <= 0)
             endGame();
         
-        return gameOver;
+        return _gameOver;
     }
 
     private void endGame(){
-        gameOver = true;
+        _gameOver = true;
     }
 }
