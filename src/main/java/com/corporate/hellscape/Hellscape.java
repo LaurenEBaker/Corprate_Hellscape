@@ -24,7 +24,7 @@ public class Hellscape {
         //Main game loop
         while(true) {
 
-            if(hellscape.SimulateOnce())
+            if(!hellscape.SimulateOnce())
                 break;
         }
     }
@@ -41,7 +41,7 @@ public class Hellscape {
     private Collection<Event> _pendingDeletedEvents = new ArrayList<Event>();
     private EventSpawner _eventSpawner = new EventSpawner();
 
-    private boolean _gameOver = false;
+    private boolean _gameRunning = true;
 
     private Hellscape() {
 
@@ -128,10 +128,10 @@ public class Hellscape {
         if(_character.getHealth() <= 0)
             endGame();
         
-        return _gameOver;
+        return _gameRunning;
     }
 
     private void endGame(){
-        _gameOver = true;
+        _gameRunning = false;
     }
 }
