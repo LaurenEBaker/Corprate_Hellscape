@@ -16,7 +16,9 @@ public class CLIApplication {
         //Main game loop
         while(true) {
 
-            hellscape.SimulateOnce();
+            if(!hellscape.SimulateOnce())
+                break; 
+
             loopCounter++;
 
             //Don't bother getting user input if ten game seconds have not elapsed
