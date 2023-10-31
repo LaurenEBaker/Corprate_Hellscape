@@ -24,7 +24,8 @@ public class Hellscape {
         //Main game loop
         while(true) {
 
-            hellscape.SimulateOnce();
+            if(!hellscape.SimulateOnce())
+                break;
         }
     }
 
@@ -39,6 +40,8 @@ public class Hellscape {
     private Collection<Event> _pendingNewEvents = new ArrayList<Event>();
     private Collection<Event> _pendingDeletedEvents = new ArrayList<Event>();
     private EventSpawner _eventSpawner = new EventSpawner();
+
+    private boolean _gameRunning = true;
 
     private Hellscape() {
 
@@ -94,7 +97,7 @@ public class Hellscape {
     }
 
     //Simulate a single second of game time
-    private void SimulateOnce() {
+    private boolean SimulateOnce() {
 
         for(Event event : _eventList) {
 
@@ -121,5 +124,14 @@ public class Hellscape {
         _addNewlyCreatedEvents();
 
         _gameTime = _gameTime.plusSeconds(1);
+
+        if(_character.getHealth() <= 0)
+            endGame();
+        
+        return _gameRunning;
+    }
+
+    private void endGame(){
+        _gameRunning = false;
     }
 }
