@@ -17,18 +17,6 @@ import com.corporate.hellscape.events.CheckHungerEvent;
 
 public class Hellscape {
 
-    public static void main( String[] args ) {
-
-        Hellscape hellscape = new Hellscape();
-
-        //Main game loop
-        while(true) {
-
-            if(!hellscape.SimulateOnce())
-                break;
-        }
-    }
-
     //TODO: Implement a basic sketch of this class in #4
     private Character _character = new Character();
 
@@ -40,7 +28,6 @@ public class Hellscape {
     private Collection<Event> _pendingNewEvents = new ArrayList<Event>();
     private Collection<Event> _pendingDeletedEvents = new ArrayList<Event>();
     private EventSpawner _eventSpawner = new EventSpawner();
-
     private boolean _gameRunning = true;
 
     private Hellscape() {
@@ -97,7 +84,7 @@ public class Hellscape {
     }
 
     //Simulate a single second of game time
-    private boolean SimulateOnce() {
+    public boolean SimulateOnce() {
 
         for(Event event : _eventList) {
 
