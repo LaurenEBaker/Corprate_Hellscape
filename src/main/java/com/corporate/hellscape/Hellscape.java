@@ -30,7 +30,7 @@ public class Hellscape {
     private EventSpawner _eventSpawner = new EventSpawner();
     private boolean _gameRunning = true;
 
-    private Hellscape() {
+    public Hellscape() {
 
         _eventList.add(new CheckHungerEvent(30, this, _character));
 
