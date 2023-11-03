@@ -8,17 +8,18 @@ import java.util.Collection;
 import com.corporate.hellscape.events.Event;
 import com.corporate.hellscape.events.EventSpawner;
 import com.corporate.hellscape.character.Character;
-import com.corporate.hellscape.events.TimedEventImp;
 import com.corporate.hellscape.events.ExampleSelfSpawningEvent;
 import com.corporate.hellscape.events.StatusEventHungerLow;
 import com.corporate.hellscape.events.CheckHungerEvent;
+import com.corporate.hellscape.events.CheckHygieneEvent;
+import com.corporate.hellscape.events.CheckStaminaEvent;
 
 
 
 public class Hellscape {
 
     //TODO: Implement a basic sketch of this class in #4
-    private Character _character = new Character();
+    private Character _character = new Character("Hellscape");
 
     private LocalDateTime _gameTime = LocalDateTime.of(
         LocalDate.of(2099, 1, 1),
@@ -32,7 +33,9 @@ public class Hellscape {
 
     public Hellscape() {
 
-        _eventList.add(new CheckHungerEvent(30, this, _character));
+        _eventList.add(new CheckHungerEvent(this, _character));
+        _eventList.add(new CheckStaminaEvent(this,_character));
+        _eventList.add(new CheckHygieneEvent(this, _character));
 
         //TODO: Remove this class in the future, it's only here for example purposes
         _eventList.add(new ExampleSelfSpawningEvent(true));
@@ -118,7 +121,7 @@ public class Hellscape {
         return _gameRunning;
     }
 
-    private void endGame(){
+    public void endGame(){
         _gameRunning = false;
     }
 }

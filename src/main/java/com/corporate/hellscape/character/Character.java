@@ -8,12 +8,23 @@ public class Character {
     private int Health;
     private int Stress;
     private int Hunger;
-    private int Sleep;
+    private int Stamina;
     private int Fun;
     private int Hygiene;
     private int WorkLoad;
 
 
+    
+    public Character(String name) {
+        Name = name;
+        Health = 100;
+        Stress=0;
+        Hunger=0;
+        Stamina=100;
+        Fun=100;
+        Hygiene=100;
+        WorkLoad=0;
+    }
 
     //Getter Function
     public String getName() {
@@ -32,8 +43,8 @@ public class Character {
         return Hunger;
     }
 
-    public int getSleep() {
-        return Sleep;
+    public int getStamin() {
+        return Stamina;
     }
 
     public int getFun() {
@@ -65,8 +76,8 @@ public class Character {
         Stress = stress;
     }
 
-    public void setSleep(int sleep) {
-        Sleep = sleep;
+    public void setStamina(int stamina) {
+        Stamina = stamina;
     }
 
     public void setFun(int fun) {
@@ -84,22 +95,13 @@ public class Character {
 
     //Increase/Decrease funtion
 
-    /*All the value will be set at 10 till a definete
-     * value is decided on.
-     */
-
     public void decreaseHealth(){
         if(Health > 0 ){
-            Health -= 10;
+            Health -= 1;
             if(Health < 0){
-                setHealth(0);
+                //end game method goes here
             }
         }
-
-        else{
-            System.out.println("Health is is too low.");
-        }
-        
     }
 
     public void decreaseStress(){
@@ -108,10 +110,6 @@ public class Character {
             if(Stress < 0){
                 setStress(0);
             }
-        }
-
-        else{
-            System.out.println("Stress is is too low.");
         }
     }
 
@@ -122,48 +120,32 @@ public class Character {
                 setHunger(0);
             }
         }
-
-        else{
-            System.out.println("Hunger is is too low.");
-        }
     }
 
-    public void decreaseSleep(){
-        if(Sleep > 0 ){
-            Sleep -= 10;
-            if(Sleep < 0){
-               setSleep(0);
+    public void decreaseStamina(){
+        if(Stamina > 0 ){
+            Stamina -= 1;
+            if(Stamina < 0){
+               setStamina(0);
             }
-        }
-
-        else{
-            System.out.println("Sleep is is too low.");
         }
     }
 
     public void decreaseFun(){
         if(Fun > 0 ){
-            Fun -= 10;
+            Fun -= 1;
             if(Fun < 0){
                 setFun(0);
             }
-        }
-
-        else{
-            System.out.println("Fun is is too low.");
         }
     }
 
     public void decreaseHygiene(){
         if(Hygiene > 0 ){
-            Hygiene -= 10;
+            Hygiene -= 1;
             if(Hygiene < 0){
                 setHygiene(0);
             }
-        }
-
-        else{
-            System.out.println("Hygiene is is too low.");
         }
     }
 
@@ -174,38 +156,41 @@ public class Character {
                 setWorkLoad(0);
             }
         }
-
-        else{
-            System.out.println("Work Load is is too low.");
-        }
     }
 
     public void increaseHealth(){
-        Health += 10;
+        if (Health<100) {
+            Health += 10;}
     }
 
     public void increaseStress(){
-        Stress += 10;
+        if (Stress<100) {
+            Stress += 1;}
     }
 
     public void increaseHunger(){
-        Hunger += 10;
+       if (Hunger<100) {
+        Hunger += 1; } 
     }
 
-    public void increaseSleep(){
-        Sleep += 10;
+    public void increaseStamina(){
+        if (Stamina<100) {
+            Stamina += 10; }
     }
 
     public void increaseFun(){
-        Fun += 10;
+        if (Fun<100) {
+            Fun += 10;}
     }
 
     public void increaseHygiene(){
-        Hygiene += 10;
+        if (Hygiene<100) {
+            Hygiene += 10; }
     }
 
     public void increaseWorkLoad(){
-        WorkLoad += 10;
+       if (WorkLoad<100) {
+        WorkLoad += 1;}
     }
 
  
