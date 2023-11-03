@@ -19,7 +19,7 @@
          <children>
             <ImageView fitHeight="800.0" fitWidth="1580.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../OneDrive/Pictures/pixeldude.png" />
+                  <Image url="@pixeldude.png" />
                </image>
             </ImageView>
          </children></Pane>
