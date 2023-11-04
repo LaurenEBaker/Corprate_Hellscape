@@ -1,7 +1,6 @@
 package com.corporate.hellscape.events;
 
 import java.util.Random;
-
 import com.corporate.hellscape.Hellscape;
 
 public class RandomEvent extends TimedEvent{
@@ -26,48 +25,5 @@ public class RandomEvent extends TimedEvent{
 		break;
 	};
 	}
-public class Gift extends Event {
-	private boolean _triggerEnabled;
-    public Gift(boolean triggerEnabled) {
-        _triggerEnabled = _triggerEnabled; }
-    public boolean isTriggered(Hellscape hellscape) {
-        return _triggerEnabled;}
-    public void triggerAction(Hellscape hellscape) {
-        System.out.println("your friend got you a nice gift");
-		Character.Stress =- 5;
-		Character.Fun =+ 5;
-
-        hellscape.registerEvent(new Gift(false));
-    }
-
-	public class Spider extends Event {
-	private boolean _triggerEnabled;
-
-    public Spider(boolean triggerEnabled) {
-        _triggerEnabled = _triggerEnabled; }
-    public boolean isTriggered(Hellscape hellscape) {
-        return _triggerEnabled;}
-    public void triggerAction(Hellscape hellscape) {
-        System.out.println("you were bitten by a posionous spider");
-		Character.Health =- 10;
-		Character.Stress =+ 5;
-		Character.Fun =- 5;
-
-        hellscape.registerEvent(new Spider(false));
-    }
-
-	public class Nothing extends Event {
-	private boolean _triggerEnabled;
-    public Nothing(boolean triggerEnabled) {
-        _triggerEnabled = _triggerEnabled; }
-    public boolean isTriggered(Hellscape hellscape) {
-        return _triggerEnabled;}
-    public void triggerAction(Hellscape hellscape) {
-        System.out.println("Nothing eventful happened");
-		Character.Health= Character.getHealth;
-
-        hellscape.registerEvent(new Nothing(false));
-    }
-}
    
 }
