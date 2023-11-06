@@ -37,7 +37,7 @@ public class Hellscape {
     private Collection<Event> _eventList = new ArrayList<Event>();
     private Collection<Event> _pendingNewEvents = new ArrayList<Event>();
     private Collection<Event> _pendingDeletedEvents = new ArrayList<Event>();
-    private RandomEvent _RandomEvent = new RandomEvent(this);
+    
 
     private Hellscape() {
 
@@ -106,15 +106,6 @@ public class Hellscape {
                 _markEventForDeletion(event);
         }
 
-        while(true) {
-
-            Event newEvent = _RandomEvent.isTriggeredEvent(this);
-
-            if(newEvent == null)
-                break;
-
-            _eventList.add(newEvent);
-        }
 
         //NOTE: We do things this way because Java will give you a runtime
         //      exception if you try to modify the thing being iterated
@@ -125,7 +116,4 @@ public class Hellscape {
         _gameTime = _gameTime.plusSeconds(1);
     }
 
-    private Event _RandomEventgetPendingEvent(Hellscape hellscape) {
-        return null;
-    }
 }

@@ -6,7 +6,7 @@ public class Spider extends Event {
 	private boolean _triggerEnabled;
 
     public Spider(boolean triggerEnabled) {
-        _triggerEnabled = _triggerEnabled; }
+        _triggerEnabled = triggerEnabled; }
     public boolean isTriggered(Hellscape hellscape) {
         return _triggerEnabled;}
     public void triggerAction(Hellscape hellscape) {
@@ -14,7 +14,5 @@ public class Spider extends Event {
 		Character.setHealth =- 10;
 		Character.setStress =+ 5;
 		Character.setFun =- 5;
-
-        hellscape.registerEvent(new Spider(false));
     }
 }
