@@ -5,9 +5,9 @@ import com.corporate.hellscape.character.Character;
 
 public class CheckStaminaEvent extends TimedEvent {
 
-    public CheckStaminaEvent( Hellscape hellscape,Character character) {
+    public CheckStaminaEvent( Hellscape hellscape) {
         super(30, hellscape);
-        character = hellscape.getCharacter();
+       
     }
 
     @Override

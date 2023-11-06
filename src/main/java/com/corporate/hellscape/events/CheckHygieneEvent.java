@@ -5,9 +5,8 @@ import com.corporate.hellscape.character.Character;
 
 public class CheckHygieneEvent extends TimedEvent {
 
-    public CheckHygieneEvent(Hellscape hellscape,Character character) {
+    public CheckHygieneEvent(Hellscape hellscape) {
         super(30, hellscape);
-        character = hellscape.getCharacter();
     }
 
     @Override
