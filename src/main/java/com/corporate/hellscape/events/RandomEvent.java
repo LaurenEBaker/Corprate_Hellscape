@@ -13,7 +13,8 @@ public class RandomEvent extends TimedEvent{
 
 	@Override
 	protected void triggerAction(Hellscape hellscape) {
-		int num1 = Random.nextInt(3); switch(num1%3) {
+		Random rand = new Random();
+		int num1 = rand.nextInt(3); switch(num1%3) {
 	case 0: 
 		hellscape.registerEvent(Event.Gift);
 		break;
