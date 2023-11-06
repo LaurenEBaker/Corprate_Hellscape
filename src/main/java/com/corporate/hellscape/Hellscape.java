@@ -34,8 +34,8 @@ public class Hellscape {
     public Hellscape() {
 
         _eventList.add(new CheckHungerEvent(this, _character));
-        _eventList.add(new CheckStaminaEvent(this,_character));
-        _eventList.add(new CheckHygieneEvent(this, _character));
+        _eventList.add(new CheckStaminaEvent(this));
+        _eventList.add(new CheckHygieneEvent(this));
 
         //TODO: Remove this class in the future, it's only here for example purposes
         _eventList.add(new ExampleSelfSpawningEvent(true));
