@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1071.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1071.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane fx:id="animationDisplay" layoutX="14.0" layoutY="14.0" prefHeight="800.0" prefWidth="1580.0">
          <children>
-            <ImageView fitHeight="800.0" fitWidth="1580.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="image" fitHeight="800.0" fitWidth="1580.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@pixeldude.png" />
                </image>
@@ -49,7 +49,7 @@
                </padding>
             </Label>
             <ProgressBar fx:id="StressBar" prefHeight="18.0" prefWidth="300.0" progress="0.0" />
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Sleep">
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Stamina">
                <font>
                   <Font name="Microsoft PhagsPa Bold" size="20.0" />
                </font>
@@ -57,7 +57,7 @@
                   <Insets top="20.0" />
                </padding>
             </Label>
-            <ProgressBar fx:id="SleepBar" prefHeight="18.0" prefWidth="300.0" progress="0.0" />
+            <ProgressBar fx:id="StaminaBar" prefHeight="18.0" prefWidth="300.0" progress="0.0" />
             <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Hygiene">
                <font>
                   <Font name="Microsoft PhagsPa Bold" size="20.0" />
@@ -101,7 +101,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="FeedButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Feed" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="FeedButton" mnemonicParsing="false" onAction="#feedButtonClicked" prefHeight="50.0" prefWidth="150.0" text="Feed" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </children>
