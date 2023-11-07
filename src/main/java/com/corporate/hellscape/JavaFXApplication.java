@@ -2,6 +2,7 @@ package com.corporate.hellscape;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -16,14 +17,9 @@ public class JavaFXApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        FXMLLoader loader = new FXMLLoader();
-        URL fxmlUrl = JavaFXApplication.class.getClassLoader().getResource("Game.fxml");
-        loader.setLocation(fxmlUrl);
-        Pane vbox = loader.<Pane>load();
-
-        Scene scene = new Scene(vbox);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        Parent game = FXMLLoader.load(getClass().getResource("Game.fxml"));
+		primaryStage.setTitle("Corporate Hellscape");
+		primaryStage.setScene(new Scene(game));
+		primaryStage.show();
     }
 }
