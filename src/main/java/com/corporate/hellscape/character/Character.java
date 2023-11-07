@@ -43,7 +43,7 @@ public class Character {
         return Hunger;
     }
 
-    public int getStamin() {
+    public int getStamina() {
         return Stamina;
     }
 
