@@ -6,7 +6,7 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Hellscape",
+            "name": "CLI Hellscape",
             "request": "launch",
             "mainClass": "com.corporate.hellscape.CLIApplication",
             "projectName": "corporate-hellscape"
