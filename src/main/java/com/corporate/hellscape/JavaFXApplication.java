@@ -17,9 +17,13 @@ public class JavaFXApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent game = FXMLLoader.load(getClass().getResource("Game.fxml"));
-		primaryStage.setTitle("Corporate Hellscape");
-		primaryStage.setScene(new Scene(game));
-		primaryStage.show();
+        FXMLLoader loader = new FXMLLoader();
+        URL fxmlUrl = JavaFXApplication.class.getClassLoader().getResource("Game.fxml");
+        loader.setLocation(fxmlUrl);
+        Pane vbox = loader.<Pane>load();
+
+        Scene scene = new Scene(vbox);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }

@@ -37,6 +37,8 @@ public class JavaFXController {
     }
 
     public void eatButtonClicked(ActionEvent event) throws IOException {
+        
+
         hungerBar.setProgress(hungerProgress);
         hungerProgress -= 0.1;
     }
