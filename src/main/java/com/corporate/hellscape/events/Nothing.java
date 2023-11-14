@@ -11,7 +11,7 @@ public class Nothing extends Event {
         return _triggerEnabled;}
     public void triggerAction(Hellscape hellscape) {
         System.out.println("Nothing eventful happened");
-		Character.setHealth= Character.getHealth;
+		//Character.setHealth= Character.getHealth;
 
     }
 }

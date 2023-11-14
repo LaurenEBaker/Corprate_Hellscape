@@ -16,18 +16,15 @@ public class RandomEvent extends TimedEvent{
 		Random rand = new Random();
 		int num1 = rand.nextInt(3); switch(num1%3) {
 	case 0: 
-		hellscape.registerEvent(Event.Gift);
-		hellscape.registerEvent(new Gift(false));
+		hellscape.registerEvent(new Gift(true));
 		break;
 	case 1: 
-		hellscape.registerEvent(Event.Spider);
-		hellscape.registerEvent(new Spider(false));
+		hellscape.registerEvent(new Spider(true));
 		break;
 	case 2: 
-		hellscape.registerEvent(Event.Nothing);
-		hellscape.registerEvent(new Nothing(false));
+		hellscape.registerEvent(new Nothing(true));
 		break;
-	};
+	};hellscape.registerEvent(new RandomEvent(hellscape));
 	}
    
 }
