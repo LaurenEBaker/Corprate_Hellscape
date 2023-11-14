@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 
@@ -29,7 +29,7 @@ public class JavaFXController {
     public ProgressBar workLoadBar;
 
     @FXML
-    public Button deStressButton;
+    public MenuButton deStressButton;
 
     public void workButtonClicked(ActionEvent event) throws IOException{
         //Increase workLoadBar

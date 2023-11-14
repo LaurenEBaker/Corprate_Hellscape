@@ -9,7 +9,7 @@ import com.corporate.hellscape.events.Event;
 import com.corporate.hellscape.events.RandomEvent;
 import com.corporate.hellscape.character.Character;
 import com.corporate.hellscape.events.ExampleSelfSpawningEvent;
-import com.corporate.hellscape.events.StatusEventHungerLow;
+import com.corporate.hellscape.events.StatusEventHungerHigh;
 import com.corporate.hellscape.events.CheckHungerEvent;
 import com.corporate.hellscape.events.CheckHygieneEvent;
 import com.corporate.hellscape.events.CheckStaminaEvent;
@@ -29,6 +29,8 @@ public class Hellscape {
     private Collection<Event> _pendingNewEvents = new ArrayList<Event>();
     private Collection<Event> _pendingDeletedEvents = new ArrayList<Event>();
 
+    private boolean _gameRunning = true;
+
     public Hellscape() {
 
         _eventList.add(new CheckHungerEvent(this, _character));
@@ -40,7 +42,7 @@ public class Hellscape {
 
         //TODO: Currently using StatusEvent as a concrete class so that things will compile
         //      For issue #6, replace this with your concrete class that *implements* StatusEvent
-        _eventList.add(new StatusEventHungerLow());
+        _eventList.add(new StatusEventHungerHigh());
 
         //adding RandomEvent class here, goign to removing this and change ExamleSelfSpawningEvent in the future
          _eventList.add(new RandomEvent(this));
