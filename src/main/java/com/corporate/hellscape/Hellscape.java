@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import com.corporate.hellscape.events.Event;
-import com.corporate.hellscape.events.EventSpawner;
+import com.corporate.hellscape.events.RandomEvent;
 import com.corporate.hellscape.character.Character;
 import com.corporate.hellscape.events.ExampleSelfSpawningEvent;
 import com.corporate.hellscape.events.StatusEventHungerLow;
@@ -28,8 +28,6 @@ public class Hellscape {
     private Collection<Event> _eventList = new ArrayList<Event>();
     private Collection<Event> _pendingNewEvents = new ArrayList<Event>();
     private Collection<Event> _pendingDeletedEvents = new ArrayList<Event>();
-    private EventSpawner _eventSpawner = new EventSpawner();
-    private boolean _gameRunning = true;
 
     public Hellscape() {
 
@@ -43,6 +41,9 @@ public class Hellscape {
         //TODO: Currently using StatusEvent as a concrete class so that things will compile
         //      For issue #6, replace this with your concrete class that *implements* StatusEvent
         _eventList.add(new StatusEventHungerLow());
+
+        //adding RandomEvent class here, goign to removing this and change ExamleSelfSpawningEvent in the future
+         _eventList.add(new RandomEvent(this));
     }
 
     //NOTE: When implementing #6, get character from here
@@ -97,15 +98,6 @@ public class Hellscape {
                 _markEventForDeletion(event);
         }
 
-        while(true) {
-
-            Event newEvent = _eventSpawner.getPendingEvent(this);
-
-            if(newEvent == null)
-                break;
-
-            _eventList.add(newEvent);
-        }
 
         //NOTE: We do things this way because Java will give you a runtime
         //      exception if you try to modify the thing being iterated
@@ -124,4 +116,5 @@ public class Hellscape {
     public void endGame(){
         _gameRunning = false;
     }
+
 }
