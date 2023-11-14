@@ -15,7 +15,7 @@ public class CheckHungerEvent extends TimedEvent {
     protected void triggerAction(Hellscape hellscape) {
        Character character = hellscape.getCharacter();
        character.increaseHunger();
-       hellscape.registerEvent(this);
+       hellscape.registerEvent(new CheckHungerEvent(hellscape, hellscape.getCharacter()));
     }
     
 }
