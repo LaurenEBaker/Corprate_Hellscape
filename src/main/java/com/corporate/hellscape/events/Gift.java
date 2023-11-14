@@ -11,7 +11,7 @@ public class Gift extends Event {
         return _triggerEnabled;}
     public void triggerAction(Hellscape hellscape) {
         System.out.println("your friend got you a nice gift");
-		//Character.setStress =- 5;
-		//Character.setFun =+ 5;
+		Character.decreaseStress(5);
+		Character.increaseFun(5);;
     }
 }

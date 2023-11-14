@@ -5,13 +5,13 @@ public class Character {
     
     //Class fields
     private String Name;
-    private int Health;
-    private int Stress;
-    private int Hunger;
-    private int Stamina;
-    private int Fun;
-    private int Hygiene;
-    private int WorkLoad;
+    private static int Health;
+    private static int Stress;
+    private static int Hunger;
+    private static int Stamina;
+    private static int Fun;
+    private static int Hygiene;
+    private static int WorkLoad;
 
 
     
@@ -68,79 +68,79 @@ public class Character {
         Health = health;
     }
 
-    public void setHunger(int hunger) {
+    public static void setHunger(int hunger) {
         Hunger = hunger;
     }
 
-    public void setStress(int stress) {
+    public static void setStress(int stress) {
         Stress = stress;
     }
 
-    public void setStamina(int stamina) {
+    public static void setStamina(int stamina) {
         Stamina = stamina;
     }
 
-    public void setFun(int fun) {
+    public static void setFun(int fun) {
         Fun = fun;
     }
 
-    public void setHygiene(int hygiene) {
+    public static void setHygiene(int hygiene) {
         Hygiene = hygiene;
     }
 
-    public void setWorkLoad(int workLoad) {
+    public static void setWorkLoad(int workLoad) {
         WorkLoad = workLoad;
     }
 
 
     //Increase/Decrease funtion
 
-    public void decreaseHealth(){
+    public static void decreaseHealth(int amount){
         if(Health > 0 ){
-            Health -= 1;
+            Health -= amount;
             if(Health < 0){
                 //end game method goes here
             }
         }
     }
 
-    public void decreaseStress(){
+    public static void decreaseStress(int amount){
         if(Stress > 0 ){
-            Stress -= 10;
+            Stress -= amount;
             if(Stress < 0){
                 setStress(0);
             }
         }
     }
 
-    public void decreaseHunger(){
+    public static void decreaseHunger(int amount){
         if(Hunger > 0 ){
-            Hunger -= 10;
+            Hunger -= amount;
             if(Hunger < 0){
                 setHunger(0);
             }
         }
     }
 
-    public void decreaseStamina(){
+    public static void decreaseStamina(int amount){
         if(Stamina > 0 ){
-            Stamina -= 1;
+            Stamina -= amount;
             if(Stamina < 0){
                setStamina(0);
             }
         }
     }
 
-    public void decreaseFun(){
+    public static void decreaseFun(int amount){
         if(Fun > 0 ){
-            Fun -= 1;
+            Fun -= amount;
             if(Fun < 0){
                 setFun(0);
             }
         }
     }
 
-    public void decreaseHygiene(){
+    public static void decreaseHygiene(int amount){
         if(Hygiene > 0 ){
             Hygiene -= 1;
             if(Hygiene < 0){
@@ -149,48 +149,48 @@ public class Character {
         }
     }
 
-    public void decreaseWorkLoad(){
+    public static void decreaseWorkLoad(int amount){
        if(WorkLoad > 0 ){
-            WorkLoad -= 10;
+            WorkLoad -= amount;
             if(WorkLoad < 0){
                 setWorkLoad(0);
             }
         }
     }
 
-    public void increaseHealth(){
+    public static void increaseHealth(int amount){
         if (Health<100) {
-            Health += 10;}
+            Health += amount;}
     }
 
-    public void increaseStress(){
+    public static void increaseStress(int amount){
         if (Stress<100) {
-            Stress += 1;}
+            Stress += amount;}
     }
 
-    public void increaseHunger(){
+    public static void increaseHunger(int amount){
        if (Hunger<100) {
-        Hunger += 1; } 
+        Hunger += amount; } 
     }
 
-    public void increaseStamina(){
+    public static void increaseStamina(int amount){
         if (Stamina<100) {
-            Stamina += 10; }
+            Stamina += amount; }
     }
 
-    public void increaseFun(){
+    public static void increaseFun(int amount){
         if (Fun<100) {
-            Fun += 10;}
+            Fun += amount;}
     }
 
-    public void increaseHygiene(){
+    public static void increaseHygiene(int amount){
         if (Hygiene<100) {
-            Hygiene += 10; }
+            Hygiene += amount; }
     }
 
-    public void increaseWorkLoad(){
+    public static void increaseWorkLoad(int amount){
        if (WorkLoad<100) {
-        WorkLoad += 1;}
+        WorkLoad += amount;}
     }
 
  
