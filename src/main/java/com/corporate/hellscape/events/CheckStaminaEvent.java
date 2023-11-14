@@ -14,7 +14,7 @@ public class CheckStaminaEvent extends TimedEvent {
     protected void triggerAction(Hellscape hellscape) {
         Character character = hellscape.getCharacter();
         character.decreaseStamina();
-        hellscape.registerEvent(this);
+        hellscape.registerEvent(new CheckStaminaEvent(hellscape));
     }
     
 }
