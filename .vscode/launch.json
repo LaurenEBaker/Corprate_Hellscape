@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "JavaFXApplication",
+            "request": "launch",
+            "mainClass": "com.corporate.hellscape.JavaFXApplication",
+            "projectName": "corporate-hellscape"
+        },
+        {
+            "type": "java",
             "name": "CLI Hellscape",
             "request": "launch",
             "mainClass": "com.corporate.hellscape.CLIApplication",
