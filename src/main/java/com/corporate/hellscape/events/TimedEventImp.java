@@ -11,7 +11,6 @@ public class TimedEventImp extends TimedEvent {
 
     protected void triggerAction(Hellscape hellscape) {
 
-        //Using this as an example to show that event retirement is working properly
-        System.out.println("This timed event should only trigger once");
+       throw new UnsupportedOperationException("TimedEventImp triggerd after 10 game seconds");
     }
 }

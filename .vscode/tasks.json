@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "cli_compile",
+			"command": "mvn -B compile",
+			"group": "build"
+		},
+		{
+			"type": "shell",
+			"label": "gui_run",
+			"command": "mvn clean javafx:run",
+			"group": "build"
+		}
+	]
+}

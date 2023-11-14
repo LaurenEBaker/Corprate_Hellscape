@@ -8,27 +8,18 @@ import java.util.Collection;
 import com.corporate.hellscape.events.Event;
 import com.corporate.hellscape.events.RandomEvent;
 import com.corporate.hellscape.character.Character;
-import com.corporate.hellscape.events.TimedEventImp;
 import com.corporate.hellscape.events.ExampleSelfSpawningEvent;
 import com.corporate.hellscape.events.StatusEventHungerLow;
+import com.corporate.hellscape.events.CheckHungerEvent;
+import com.corporate.hellscape.events.CheckHygieneEvent;
+import com.corporate.hellscape.events.CheckStaminaEvent;
 
 
 
 public class Hellscape {
 
-    public static void main( String[] args ) {
-
-        Hellscape hellscape = new Hellscape();
-
-        //Main game loop
-        while(true) {
-
-            hellscape.SimulateOnce();
-        }
-    }
-
     //TODO: Implement a basic sketch of this class in #4
-    private Character _character = new Character();
+    private Character _character = new Character("Hellscape");
 
     private LocalDateTime _gameTime = LocalDateTime.of(
         LocalDate.of(2099, 1, 1),
@@ -37,11 +28,12 @@ public class Hellscape {
     private Collection<Event> _eventList = new ArrayList<Event>();
     private Collection<Event> _pendingNewEvents = new ArrayList<Event>();
     private Collection<Event> _pendingDeletedEvents = new ArrayList<Event>();
-    
 
-    private Hellscape() {
+    public Hellscape() {
 
-        _eventList.add(new TimedEventImp(this));
+        _eventList.add(new CheckHungerEvent(this, _character));
+        _eventList.add(new CheckStaminaEvent(this));
+        _eventList.add(new CheckHygieneEvent(this));
 
         //TODO: Remove this class in the future, it's only here for example purposes
         _eventList.add(new ExampleSelfSpawningEvent(true));
@@ -96,7 +88,7 @@ public class Hellscape {
     }
 
     //Simulate a single second of game time
-    private void SimulateOnce() {
+    public boolean SimulateOnce() {
 
         for(Event event : _eventList) {
 
@@ -114,6 +106,15 @@ public class Hellscape {
         _addNewlyCreatedEvents();
 
         _gameTime = _gameTime.plusSeconds(1);
+
+        if(_character.getHealth() <= 0)
+            endGame();
+        
+        return _gameRunning;
+    }
+
+    public void endGame(){
+        _gameRunning = false;
     }
 
 }
