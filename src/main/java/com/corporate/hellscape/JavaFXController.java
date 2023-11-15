@@ -50,22 +50,29 @@ public class JavaFXController{
 
     public void eatButtonClicked(ActionEvent event){
 
-        Timeline timeline = new Timeline();
+        //Example Animation
+        image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
 
-        for(int i = 0; i < 10; i++){
-            image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        Timeline timeline = new Timeline();
+        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(100), new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite1.png"));
             }
-            image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite1.png"));
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            
+        }));
+        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(200), new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
             }
-        }
+            
+        }));
+
+        timeline.setCycleCount(10);
+        timeline.play();
 
         hungerBar.setProgress(hungerProgress);
         hungerProgress -= 0.1;
