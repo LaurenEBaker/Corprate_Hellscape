@@ -1,6 +1,5 @@
 package com.corporate.hellscape;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -10,7 +9,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class JavaFXController {
+public class JavaFXController{
     @FXML
     public ImageView image;
 
@@ -40,9 +39,9 @@ public class JavaFXController {
 
     public void eatButtonClicked(ActionEvent event) throws IOException, InterruptedException {
         for(int i = 0; i < 10; i++){
-            image.setImage(new Image(new FileInputStream("src/main/java/com/corporate/hellscape/Animations/bite2.png")));
+            image.setImage(new Image("Animations/bite2.png"));
             Thread.sleep(50);
-            image.setImage(new Image(new FileInputStream("src/main/java/com/corporate/hellscape/Animations/bite1.png")));
+            image.setImage(new Image("Animations/bite1.png"));
             Thread.sleep(50);
         }
 
