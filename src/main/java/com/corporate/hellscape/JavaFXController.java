@@ -1,5 +1,6 @@
 package com.corporate.hellscape;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -7,10 +8,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class JavaFXController {
     @FXML
-    public Image image;
+    public ImageView image;
 
     @FXML
     public ProgressBar healthBar;
@@ -36,8 +38,13 @@ public class JavaFXController {
         //Play animation for working
     }
 
-    public void eatButtonClicked(ActionEvent event) throws IOException {
-        
+    public void eatButtonClicked(ActionEvent event) throws IOException, InterruptedException {
+        for(int i = 0; i < 10; i++){
+            image.setImage(new Image(new FileInputStream("src/main/java/com/corporate/hellscape/Animations/bite2.png")));
+            Thread.sleep(50);
+            image.setImage(new Image(new FileInputStream("src/main/java/com/corporate/hellscape/Animations/bite1.png")));
+            Thread.sleep(50);
+        }
 
         hungerBar.setProgress(hungerProgress);
         hungerProgress -= 0.1;
