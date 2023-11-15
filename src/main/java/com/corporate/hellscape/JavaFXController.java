@@ -1,17 +1,28 @@
 package com.corporate.hellscape;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.SequentialTransition;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 public class JavaFXController{
     @FXML
     public ImageView image;
+
+    @FXML
+    public Label dayCountLabel;
 
     @FXML
     public ProgressBar healthBar;
@@ -37,12 +48,23 @@ public class JavaFXController{
         //Play animation for working
     }
 
-    public void eatButtonClicked(ActionEvent event) throws IOException, InterruptedException {
+    public void eatButtonClicked(ActionEvent event){
+
+        Timeline timeline = new Timeline();
+
         for(int i = 0; i < 10; i++){
-            image.setImage(new Image("Animations/bite2.png"));
-            Thread.sleep(50);
-            image.setImage(new Image("Animations/bite1.png"));
-            Thread.sleep(50);
+            image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite1.png"));
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         hungerBar.setProgress(hungerProgress);

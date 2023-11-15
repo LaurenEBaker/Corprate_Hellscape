@@ -195,10 +195,15 @@
             </MenuButton>
          </children>
       </HBox>
-      <ImageView fitHeight="580.0" fitWidth="930.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true">
+      <ImageView fx:id="image" fitHeight="580.0" fitWidth="930.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true">
          <image>
             <Image url="@Animations/pixeldude.png" />
          </image>
       </ImageView>
+      <Label fx:id="dayCountLabel" layoutX="10.0" layoutY="10.0" prefHeight="70.0" prefWidth="250.0" text="Day: 0">
+         <font>
+            <Font name="Microsoft PhagsPa Bold" size="45.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
