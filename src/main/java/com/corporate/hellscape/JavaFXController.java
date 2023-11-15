@@ -1,15 +1,12 @@
 package com.corporate.hellscape;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 
 import javafx.animation.KeyFrame;
-import javafx.animation.SequentialTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.ProgressBar;
@@ -43,6 +40,17 @@ public class JavaFXController{
     @FXML
     public MenuButton deStressButton;
 
+    @FXML
+    public void initialize(){
+        healthBar.setProgress(1.0);
+        hungerBar.setProgress(0.0);
+        stressBar.setProgress(0.0);
+        staminaBar.setProgress(1.0);
+        hygieneBar.setProgress(1.0);
+        funBar.setProgress(0.5);
+        workLoadBar.setProgress(0.5);
+    }
+
     public void workButtonClicked(ActionEvent event) throws IOException{
         //Increase workLoadBar
         //Play animation for working
@@ -71,7 +79,7 @@ public class JavaFXController{
             
         }));
 
-        timeline.setCycleCount(10);
+        timeline.setCycleCount(5);
         timeline.play();
 
         hungerBar.setProgress(hungerProgress);
