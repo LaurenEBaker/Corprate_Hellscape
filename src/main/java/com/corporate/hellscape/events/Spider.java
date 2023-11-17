@@ -11,8 +11,10 @@ public class Spider extends Event {
     public void triggerAction(Hellscape hellscape) {
         System.out.println("you were bitten by a posionous spider");
 
-		hellscape.getCharacter().decreaseHealth(5);
-		hellscape.getCharacter().increaseStress(5);
-		hellscape.getCharacter().decreaseFun(5);
+		hellscape.getCharacter().decreaseHealth();
+		hellscape.getCharacter().increaseStress();
+		hellscape.getCharacter().decreaseFun(
+            
+        );
     }
 }
