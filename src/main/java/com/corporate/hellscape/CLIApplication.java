@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.events.Event;
 import com.corporate.hellscape.events.FeedCharacterInputEvent;
+import com.corporate.hellscape.events.SleepCharacterInputEvent;
 
 public class CLIApplication {
 
@@ -48,6 +49,7 @@ public class CLIApplication {
     private static Event _lookUpInputEvent(String commandName) {
 
         if(commandName.equals("feed")) return new FeedCharacterInputEvent();
+        if(commandName.equals("sleep")) return new SleepCharacterInputEvent();
                                        return null;
     }
 }
