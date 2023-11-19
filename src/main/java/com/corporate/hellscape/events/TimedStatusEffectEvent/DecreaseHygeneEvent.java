@@ -1,11 +1,12 @@
-package com.corporate.hellscape.events;
+package com.corporate.hellscape.events.TimedStatusEffectEvent;
 
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.character.Character;
+import com.corporate.hellscape.events.TimedEvent;
 
-public class CheckHygieneEvent extends TimedEvent {
+public class DecreaseHygeneEvent extends TimedEvent {
 
-    public CheckHygieneEvent(Hellscape hellscape) {
+    public DecreaseHygeneEvent(Hellscape hellscape) {
         super(30, hellscape);
     }
 
@@ -13,7 +14,7 @@ public class CheckHygieneEvent extends TimedEvent {
     protected void triggerAction(Hellscape hellscape) {
         Character character = hellscape.getCharacter();
         character.decreaseHygiene();
-        hellscape.registerEvent(new CheckHygieneEvent(hellscape));
+        hellscape.registerEvent(new DecreaseHygeneEvent(hellscape));
     }
     
 }

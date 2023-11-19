@@ -1,11 +1,12 @@
-package com.corporate.hellscape.events;
+package com.corporate.hellscape.events.TimedStatusEffectEvent;
 
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.character.Character;
+import com.corporate.hellscape.events.TimedEvent;
 
-public class CheckHungerEvent extends TimedEvent {
+public class IncreaseHungerEvent extends TimedEvent {
 
-    public CheckHungerEvent( Hellscape hellscape, Character character) {
+    public IncreaseHungerEvent( Hellscape hellscape, Character character) {
         super(30, hellscape);
         character = hellscape.getCharacter();
 
@@ -15,7 +16,7 @@ public class CheckHungerEvent extends TimedEvent {
     protected void triggerAction(Hellscape hellscape) {
        Character character = hellscape.getCharacter();
        character.increaseHunger();
-       hellscape.registerEvent(new CheckHungerEvent(hellscape, hellscape.getCharacter()));
+       hellscape.registerEvent(new IncreaseHungerEvent(hellscape, hellscape.getCharacter()));
     }
     
 }

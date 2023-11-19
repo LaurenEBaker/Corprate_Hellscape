@@ -1,15 +1,16 @@
-package com.corporate.hellscape.events;
+package com.corporate.hellscape.events.StatusCheckEvent;
 
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.character.Character;
+import com.corporate.hellscape.events.StatusEvent;
 
-public class StatusEventStressHigh extends StatusEvent{
+public class CheckHygeneLowEvent extends StatusEvent{
 
     public void triggerAction(Hellscape hellscape) {
         hellscape.getCharacter().decreaseHealth();
     }
 
     public boolean isTriggered(Character character) {
-        return (character.getStress() > 50);
+        return (character.getHygiene() < 50);
     }
 }

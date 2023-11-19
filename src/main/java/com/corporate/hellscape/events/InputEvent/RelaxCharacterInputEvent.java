@@ -1,7 +1,8 @@
-package com.corporate.hellscape.events;
+package com.corporate.hellscape.events.InputEvent;
 
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.character.Character;
+import com.corporate.hellscape.events.Event;
 
 public class RelaxCharacterInputEvent extends Event {
 
