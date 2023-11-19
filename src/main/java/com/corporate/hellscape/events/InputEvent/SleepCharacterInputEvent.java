@@ -1,6 +1,7 @@
-package com.corporate.hellscape.events;
+package com.corporate.hellscape.events.InputEvent;
 
 import com.corporate.hellscape.character.Character;
+import com.corporate.hellscape.events.Event;
 import com.corporate.hellscape.Hellscape;
 
 public class SleepCharacterInputEvent extends Event {
