@@ -1,12 +1,12 @@
-package com.corporate.hellscape.events.InputEvent;
+package com.corporate.hellscape.events.InputEvents;
 
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.character.Character;
 import com.corporate.hellscape.events.Event;
 
-public class ShowerCharacterInputEvent extends Event {
+public class RelaxCharacterInputEvent extends Event {
 
-    public ShowerCharacterInputEvent(){ }
+    public RelaxCharacterInputEvent(){ }
 
     @Override
     public boolean isTriggered(Hellscape hellscape) {
@@ -16,16 +16,16 @@ public class ShowerCharacterInputEvent extends Event {
     @Override
     protected void triggerAction(Hellscape hellscape) {
         Character character = hellscape.getCharacter();
-        int oldHygiene = character.getHygiene();
+        int oldStress = character.getStress();
 
-        hellscape.getCharacter().increaseHygiene();
+        hellscape.getCharacter().decreaseStress();
 
-        int newHygiene = character.getHygiene();
+        int newStress = character.getStress();
 
         System.out.println(String.format(
-            "Character took a shower. Hygiene went from %d to %d",
-            oldHygiene,
-            newHygiene ));
+            "Character relaxed. stress went from %d to %d",
+            oldStress,
+            newStress ));
     }
     
 }

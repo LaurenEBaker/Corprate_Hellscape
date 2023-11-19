@@ -1,4 +1,4 @@
-package com.corporate.hellscape.events.InputEvent;
+package com.corporate.hellscape.events.InputEvents;
 
 import com.corporate.hellscape.character.Character;
 import com.corporate.hellscape.events.Event;
