@@ -18,8 +18,5 @@ public abstract class Event {
     public abstract boolean isTriggered(Hellscape hellscape);
     protected abstract void triggerAction(Hellscape hellscape);
     
-    public boolean isRetired() {
-
-        return _isRetired;
-    }
+    public boolean isRetired() { return _isRetired; }
 }
