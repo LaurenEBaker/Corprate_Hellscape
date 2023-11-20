@@ -21,7 +21,7 @@ public class SleepCharacterInputEvent extends Event {
 
         int newStamina = character.getStamina();
 
-        System.out.println(String.format(
+        hellscape.logMessage(String.format(
             "Character got some rest. Stamina went from %d to %d",
             oldStamina,
             newStamina ));

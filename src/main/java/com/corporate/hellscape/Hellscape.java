@@ -29,6 +29,7 @@ public class Hellscape {
     private Collection<Event> _eventList = new ArrayList<Event>();
     private Collection<Event> _pendingNewEvents = new ArrayList<Event>();
     private Collection<Event> _pendingDeletedEvents = new ArrayList<Event>();
+    private Collection<String> _messages = new ArrayList<String>();
     private boolean _gameRunning = true;
 
     public Hellscape() {
@@ -52,6 +53,17 @@ public class Hellscape {
 
     public Character getCharacter() { return _character; }
     public LocalDateTime getGameTime() { return _gameTime; }
+
+    public void logMessage(String message) { _messages.add(message); }
+
+    public String[] getPendingMessages() {
+
+        String[] currentMessages = new String[_messages.size()];
+        _messages.toArray(currentMessages);
+        _messages.clear();
+
+        return currentMessages;
+    }
 
     //Add an event to the pending new list for later insertion
     //into the general events list
