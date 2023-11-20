@@ -16,7 +16,6 @@ public class JavaFXApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         FXMLLoader loader = new FXMLLoader();
         URL fxmlUrl = JavaFXApplication.class.getClassLoader().getResource("Game.fxml");
         loader.setLocation(fxmlUrl);
