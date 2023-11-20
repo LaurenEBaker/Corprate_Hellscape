@@ -6,6 +6,6 @@ import com.corporate.hellscape.events.ImmediateEvent;
 public class NothingEvent extends ImmediateEvent {
 
     public void triggerAction(Hellscape hellscape) {
-        System.out.println("Nothing eventful happened");
+        hellscape.logMessage("Nothing eventful happened");
     }
 }

@@ -15,6 +15,7 @@ import com.corporate.hellscape.events.StatCheckEvents.CheckStressHighEvent;
 import com.corporate.hellscape.events.StatCheckEvents.CheckWorkHighEvent;
 import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseHygeneEvent;
 import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseStaminaEvent;
+import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseWorkloadEvent;
 import com.corporate.hellscape.events.TimedStatusEffectEvent.IncreaseHungerEvent;
 import com.corporate.hellscape.character.Character;
 
@@ -29,6 +30,7 @@ public class Hellscape {
     private Collection<Event> _eventList = new ArrayList<Event>();
     private Collection<Event> _pendingNewEvents = new ArrayList<Event>();
     private Collection<Event> _pendingDeletedEvents = new ArrayList<Event>();
+    private Collection<String> _messages = new ArrayList<String>();
     private boolean _gameRunning = true;
 
     public Hellscape() {
@@ -37,6 +39,7 @@ public class Hellscape {
         _eventList.add(new IncreaseHungerEvent(this, _character));
         _eventList.add(new DecreaseStaminaEvent(this));
         _eventList.add(new DecreaseHygeneEvent(this));
+        _eventList.add(new DecreaseWorkloadEvent(this));
 
         //Timers for regularly checking character stats for indirect effects
         _eventList.add(new CheckFunHighEvent(this));
@@ -52,6 +55,17 @@ public class Hellscape {
 
     public Character getCharacter() { return _character; }
     public LocalDateTime getGameTime() { return _gameTime; }
+
+    public void logMessage(String message) { _messages.add(message); }
+
+    public String[] getPendingMessages() {
+
+        String[] currentMessages = new String[_messages.size()];
+        _messages.toArray(currentMessages);
+        _messages.clear();
+
+        return currentMessages;
+    }
 
     //Add an event to the pending new list for later insertion
     //into the general events list

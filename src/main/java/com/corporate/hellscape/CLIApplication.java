@@ -2,7 +2,6 @@ package com.corporate.hellscape;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.character.Character;
 import com.corporate.hellscape.events.Event;
 import com.corporate.hellscape.events.InputEvents.FeedCharacterInputEvent;
@@ -20,7 +19,11 @@ public class CLIApplication {
         //Main game loop
         while(true) {
 
-            if(!hellscape.SimulateOnce())
+            boolean simulationRunning = hellscape.SimulateOnce();
+
+            _printGameMessages(hellscape);
+
+            if(!simulationRunning)
                 break; 
 
             loopCounter++;
@@ -70,6 +73,12 @@ public class CLIApplication {
             character.getStamina(),
             character.getFun(),
             character.getHygiene(),
-            character.getWorkLoad() ));
+            character.getWorkload() ));
+    }
+
+    private static void _printGameMessages(Hellscape hellscape) {
+        
+        for(String message : hellscape.getPendingMessages())
+            System.out.println(message);
     }
 }

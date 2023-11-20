@@ -8,24 +8,19 @@ public class RandomEvent extends TimedEvent{
 
     public RandomEvent(Hellscape hellscape) {
 		Random ran = new Random();
-		SetDelay(ran.nextInt(), hellscape);
+		SetDelay(ran.nextInt(60), hellscape);
 	}
 
 	protected void triggerAction(Hellscape hellscape) {
 
 		Random rand = new Random();
-		int num1 = rand.nextInt(3);
+		int eventDiceRoll = rand.nextInt(4);
 
-		switch(num1%3) {
-			case 0: 
-				hellscape.registerEvent(new GiftEvent());
-				break;
-			case 1: 
-				hellscape.registerEvent(new SpiderEvent());
-				break;
-			case 2: 
-				hellscape.registerEvent(new NothingEvent());
-				break;
+		switch(eventDiceRoll) {
+			case 0: hellscape.registerEvent(new GiftEvent());          break;
+			case 1: hellscape.registerEvent(new SpiderEvent());        break;
+			case 2: hellscape.registerEvent(new NothingEvent());       break;
+			case 3: hellscape.registerEvent(new NewAssignmentEvent()); break;
 		}
 
 		hellscape.registerEvent(new RandomEvent(hellscape));

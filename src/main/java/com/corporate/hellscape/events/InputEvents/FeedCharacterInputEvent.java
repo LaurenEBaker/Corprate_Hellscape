@@ -18,7 +18,7 @@ public class FeedCharacterInputEvent extends Event {
 
         int newHunger = character.getHunger();
 
-        System.out.println(String.format(
+        hellscape.logMessage(String.format(
             "Character was fed. Hunger went from %d to %d",
             oldHunger,
             newHunger ));
