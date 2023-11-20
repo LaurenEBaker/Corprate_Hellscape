@@ -6,19 +6,21 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import com.corporate.hellscape.events.Event;
-import com.corporate.hellscape.events.RandomEvent;
+import com.corporate.hellscape.events.RandomEvents.RandomEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckFunHighEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckHungerHighEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckHygeneLowEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckSleepLowEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckStressHighEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckWorkHighEvent;
+import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseHygeneEvent;
+import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseStaminaEvent;
+import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseWorkloadEvent;
+import com.corporate.hellscape.events.TimedStatusEffectEvent.IncreaseHungerEvent;
 import com.corporate.hellscape.character.Character;
-import com.corporate.hellscape.events.ExampleSelfSpawningEvent;
-import com.corporate.hellscape.events.StatusEventHungerHigh;
-import com.corporate.hellscape.events.CheckHungerEvent;
-import com.corporate.hellscape.events.CheckHygieneEvent;
-import com.corporate.hellscape.events.CheckStaminaEvent;
-
-
 
 public class Hellscape {
 
-    //TODO: Implement a basic sketch of this class in #4
     private Character _character = new Character("Hellscape");
 
     private LocalDateTime _gameTime = LocalDateTime.of(
@@ -28,51 +30,50 @@ public class Hellscape {
     private Collection<Event> _eventList = new ArrayList<Event>();
     private Collection<Event> _pendingNewEvents = new ArrayList<Event>();
     private Collection<Event> _pendingDeletedEvents = new ArrayList<Event>();
-
+    private Collection<String> _messages = new ArrayList<String>();
     private boolean _gameRunning = true;
 
     public Hellscape() {
 
-        _eventList.add(new CheckHungerEvent(this, _character));
-        _eventList.add(new CheckStaminaEvent(this));
-        _eventList.add(new CheckHygieneEvent(this));
+        //Timers for affecting character base stats based on regular passage of time
+        _eventList.add(new IncreaseHungerEvent(this, _character));
+        _eventList.add(new DecreaseStaminaEvent(this));
+        _eventList.add(new DecreaseHygeneEvent(this));
+        _eventList.add(new DecreaseWorkloadEvent(this));
 
-        //TODO: Remove this class in the future, it's only here for example purposes
-        _eventList.add(new ExampleSelfSpawningEvent(true));
+        //Timers for regularly checking character stats for indirect effects
+        _eventList.add(new CheckFunHighEvent(this));
+        _eventList.add(new CheckHungerHighEvent(this));
+        _eventList.add(new CheckHygeneLowEvent(this));
+        _eventList.add(new CheckSleepLowEvent(this));
+        _eventList.add(new CheckStressHighEvent(this));
+        _eventList.add(new CheckWorkHighEvent(this));
 
-        //TODO: Currently using StatusEvent as a concrete class so that things will compile
-        //      For issue #6, replace this with your concrete class that *implements* StatusEvent
-        _eventList.add(new StatusEventHungerHigh());
-
-        //adding RandomEvent class here, goign to removing this and change ExamleSelfSpawningEvent in the future
-         _eventList.add(new RandomEvent(this));
+        //Spawner for all day-to-day happenings
+        _eventList.add(new RandomEvent(this));
     }
 
-    //NOTE: When implementing #6, get character from here
-    public Character getCharacter() {
+    public Character getCharacter() { return _character; }
+    public LocalDateTime getGameTime() { return _gameTime; }
 
-        return _character;
-    };
+    public void logMessage(String message) { _messages.add(message); }
 
-    //NOTE: When implementing #7, get time from here
-    public LocalDateTime getGameTime() {
+    public String[] getPendingMessages() {
 
-        return _gameTime;
-    };
+        String[] currentMessages = new String[_messages.size()];
+        _messages.toArray(currentMessages);
+        _messages.clear();
+
+        return currentMessages;
+    }
 
     //Add an event to the pending new list for later insertion
     //into the general events list
-    public void registerEvent(Event event) {
-
-        _pendingNewEvents.add(event);
-    }
+    public void registerEvent(Event event) { _pendingNewEvents.add(event); }
 
     //Add an event to a list to be deleted at the end of
     //a simulation iteration
-    public void _markEventForDeletion(Event event) {
-
-        _pendingDeletedEvents.add(event);
-    }
+    public void _markEventForDeletion(Event event) { _pendingDeletedEvents.add(event); }
 
     //Add any events that were added to the pending new list
     //to the event list *after* we're done iterating the event list
@@ -100,7 +101,6 @@ public class Hellscape {
                 _markEventForDeletion(event);
         }
 
-
         //NOTE: We do things this way because Java will give you a runtime
         //      exception if you try to modify the thing being iterated
         //      *while* it's being iterated over
@@ -115,8 +115,5 @@ public class Hellscape {
         return _gameRunning;
     }
 
-    public void endGame(){
-        _gameRunning = false;
-    }
-
+    public void endGame(){ _gameRunning = false; }
 }
