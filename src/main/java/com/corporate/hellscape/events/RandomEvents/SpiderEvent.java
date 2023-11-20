@@ -1,4 +1,4 @@
-package com.corporate.hellscape.events.RandomEvent;
+package com.corporate.hellscape.events.RandomEvents;
 
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.events.ImmediateEvent;

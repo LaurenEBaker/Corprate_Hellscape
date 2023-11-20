@@ -1,4 +1,4 @@
-package com.corporate.hellscape.events.RandomEvent;
+package com.corporate.hellscape.events.RandomEvents;
 
 import java.util.Random;
 import com.corporate.hellscape.Hellscape;

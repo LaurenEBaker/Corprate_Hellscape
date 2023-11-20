@@ -22,5 +22,4 @@ public abstract class TimedEvent extends Event {
     public boolean isTriggered(Hellscape hellscape) {
         return eventTime.isBefore(hellscape.getGameTime());
     }
-    
 }

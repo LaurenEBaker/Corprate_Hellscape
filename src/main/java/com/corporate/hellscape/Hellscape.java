@@ -6,8 +6,13 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import com.corporate.hellscape.events.Event;
-import com.corporate.hellscape.events.RandomEvent.RandomEvent;
-import com.corporate.hellscape.events.StatusCheckEvent.CheckHungerHighEvent;
+import com.corporate.hellscape.events.RandomEvents.RandomEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckFunHighEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckHungerHighEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckHygeneLowEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckSleepLowEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckStressHighEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckWorkHighEvent;
 import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseHygeneEvent;
 import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseStaminaEvent;
 import com.corporate.hellscape.events.TimedStatusEffectEvent.IncreaseHungerEvent;
@@ -28,10 +33,20 @@ public class Hellscape {
 
     public Hellscape() {
 
+        //Timers for affecting character base stats based on regular passage of time
         _eventList.add(new IncreaseHungerEvent(this, _character));
         _eventList.add(new DecreaseStaminaEvent(this));
         _eventList.add(new DecreaseHygeneEvent(this));
-        _eventList.add(new CheckHungerHighEvent());
+
+        //Timers for regularly checking character stats for indirect effects
+        _eventList.add(new CheckFunHighEvent(this));
+        _eventList.add(new CheckHungerHighEvent(this));
+        _eventList.add(new CheckHygeneLowEvent(this));
+        _eventList.add(new CheckSleepLowEvent(this));
+        _eventList.add(new CheckStressHighEvent(this));
+        _eventList.add(new CheckWorkHighEvent(this));
+
+        //Spawner for all day-to-day happenings
         _eventList.add(new RandomEvent(this));
     }
 

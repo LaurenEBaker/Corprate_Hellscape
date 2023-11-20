@@ -5,10 +5,10 @@ import java.io.InputStreamReader;
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.character.Character;
 import com.corporate.hellscape.events.Event;
-import com.corporate.hellscape.events.InputEvent.FeedCharacterInputEvent;
-import com.corporate.hellscape.events.InputEvent.RelaxCharacterInputEvent;
-import com.corporate.hellscape.events.InputEvent.ShowerCharacterInputEvent;
-import com.corporate.hellscape.events.InputEvent.SleepCharacterInputEvent;
+import com.corporate.hellscape.events.InputEvents.FeedCharacterInputEvent;
+import com.corporate.hellscape.events.InputEvents.RelaxCharacterInputEvent;
+import com.corporate.hellscape.events.InputEvents.ShowerCharacterInputEvent;
+import com.corporate.hellscape.events.InputEvents.SleepCharacterInputEvent;
 
 public class CLIApplication {
 
