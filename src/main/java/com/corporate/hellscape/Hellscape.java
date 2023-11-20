@@ -15,6 +15,7 @@ import com.corporate.hellscape.events.StatCheckEvents.CheckStressHighEvent;
 import com.corporate.hellscape.events.StatCheckEvents.CheckWorkHighEvent;
 import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseHygeneEvent;
 import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseStaminaEvent;
+import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseWorkloadEvent;
 import com.corporate.hellscape.events.TimedStatusEffectEvent.IncreaseHungerEvent;
 import com.corporate.hellscape.character.Character;
 
@@ -37,6 +38,7 @@ public class Hellscape {
         _eventList.add(new IncreaseHungerEvent(this, _character));
         _eventList.add(new DecreaseStaminaEvent(this));
         _eventList.add(new DecreaseHygeneEvent(this));
+        _eventList.add(new DecreaseWorkloadEvent(this));
 
         //Timers for regularly checking character stats for indirect effects
         _eventList.add(new CheckFunHighEvent(this));
