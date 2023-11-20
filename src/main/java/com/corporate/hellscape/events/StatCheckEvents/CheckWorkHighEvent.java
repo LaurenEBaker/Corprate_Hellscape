@@ -13,6 +13,6 @@ public class CheckWorkHighEvent extends StatCheckEvent {
     }
 
     public boolean statIsAtThreshold(Character character) {
-        return (character.getWorkLoad() > 50);
+        return (character.getWorkload() > 50);
     }
 }

@@ -22,7 +22,7 @@ public class RelaxCharacterInputEvent extends Event {
 
         int newStress = character.getStress();
 
-        System.out.println(String.format(
+        hellscape.logMessage(String.format(
             "Character relaxed. stress went from %d to %d",
             oldStress,
             newStress ));

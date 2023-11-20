@@ -22,7 +22,7 @@ public class ShowerCharacterInputEvent extends Event {
 
         int newHygiene = character.getHygiene();
 
-        System.out.println(String.format(
+        hellscape.logMessage(String.format(
             "Character took a shower. Hygiene went from %d to %d",
             oldHygiene,
             newHygiene ));
