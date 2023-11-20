@@ -13,7 +13,7 @@ public class DecreaseWorkloadEvent extends TimedEvent {
     @Override
     protected void triggerAction(Hellscape hellscape) {
         Character character = hellscape.getCharacter();
-        character.decreaseWorkLoad();
+        character.decreaseWorkload();
         hellscape.registerEvent(new DecreaseWorkloadEvent(hellscape));
     }
     
