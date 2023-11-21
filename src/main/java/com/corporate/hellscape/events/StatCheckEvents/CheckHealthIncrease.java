@@ -13,7 +13,7 @@ public class CheckHealthIncrease extends StatCheckEvent {
     
     protected boolean statIsAtThreshold(Character character) {
       return (character.getHunger()<50 && character.getHygiene()>50 && character.getStress()<50 && character.getStamina()>50);
-
+    }
     
     protected void statTriggerAction(Hellscape hellscape) {
        hellscape.getCharacter().increaseHealthBy(2);
