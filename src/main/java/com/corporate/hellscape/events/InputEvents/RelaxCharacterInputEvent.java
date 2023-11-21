@@ -18,7 +18,7 @@ public class RelaxCharacterInputEvent extends Event {
         Character character = hellscape.getCharacter();
         int oldStress = character.getStress();
 
-        hellscape.getCharacter().decreaseStress();
+        hellscape.getCharacter().decreaseStressBy(5);
 
         int newStress = character.getStress();
 

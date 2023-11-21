@@ -18,7 +18,7 @@ public class ShowerCharacterInputEvent extends Event {
         Character character = hellscape.getCharacter();
         int oldHygiene = character.getHygiene();
 
-        hellscape.getCharacter().increaseHygiene();
+        hellscape.getCharacter().increaseHygieneBy(3);
 
         int newHygiene = character.getHygiene();
 
