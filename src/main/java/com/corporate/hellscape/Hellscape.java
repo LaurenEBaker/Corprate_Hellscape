@@ -8,6 +8,7 @@ import java.util.Collection;
 import com.corporate.hellscape.events.Event;
 import com.corporate.hellscape.events.RandomEvents.RandomEvent;
 import com.corporate.hellscape.events.StatCheckEvents.CheckFunHighEvent;
+import com.corporate.hellscape.events.StatCheckEvents.CheckHealthIncrease;
 import com.corporate.hellscape.events.StatCheckEvents.CheckHungerHighEvent;
 import com.corporate.hellscape.events.StatCheckEvents.CheckHygeneLowEvent;
 import com.corporate.hellscape.events.StatCheckEvents.CheckSleepLowEvent;
@@ -48,6 +49,7 @@ public class Hellscape {
         _eventList.add(new CheckSleepLowEvent(this));
         _eventList.add(new CheckStressHighEvent(this));
         _eventList.add(new CheckWorkHighEvent(this));
+        _eventList.add(new CheckHealthIncrease(this));
 
         //Spawner for all day-to-day happenings
         _eventList.add(new RandomEvent(this));
