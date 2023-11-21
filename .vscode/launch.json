@@ -9,7 +9,8 @@
             "name": "JavaFXApplication",
             "request": "launch",
             "mainClass": "com.corporate.hellscape.JavaFXApplication",
-            "projectName": "corporate-hellscape"
+            "projectName": "corporate-hellscape",
+            "vmArgs":"--module-path ${userHome}/javafx-sdk-21.0.1/lib  --add-modules=javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
