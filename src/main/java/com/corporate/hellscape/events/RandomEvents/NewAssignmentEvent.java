@@ -1,7 +1,5 @@
 package com.corporate.hellscape.events.RandomEvents;
 
-import java.io.Console;
-
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.events.ImmediateEvent;
 

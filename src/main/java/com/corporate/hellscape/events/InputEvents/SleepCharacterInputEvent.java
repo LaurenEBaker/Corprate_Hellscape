@@ -1,23 +1,19 @@
 package com.corporate.hellscape.events.InputEvents;
 
 import com.corporate.hellscape.character.Character;
-import com.corporate.hellscape.events.Event;
+import com.corporate.hellscape.character.CharacterState;
 import com.corporate.hellscape.Hellscape;
 
-public class SleepCharacterInputEvent extends Event {
+public class SleepCharacterInputEvent extends InputEvent {
 
-    public SleepCharacterInputEvent(){ }
-    
-    @Override
-    public boolean isTriggered(Hellscape hellscape) {
-      return true;
-    }
-    @Override
-    protected void triggerAction(Hellscape hellscape) {
+    public SleepCharacterInputEvent() { super("sleep", CharacterState.Sleeping, 60); }
+
+    protected void inputAction(Hellscape hellscape) {
+
         Character character = hellscape.getCharacter();
         int oldStamina = character.getStamina();
 
-        hellscape.getCharacter().increaseStaminaBy(5);
+        character.increaseStamina();
 
         int newStamina = character.getStamina();
 
