@@ -9,7 +9,7 @@ public class CheckStressHighEvent extends StatCheckEvent {
     public CheckStressHighEvent(Hellscape hellscape) { super(30, hellscape); }
 
     public void statTriggerAction(Hellscape hellscape) {
-        hellscape.getCharacter().decreaseHealth();
+        hellscape.getCharacter().decreaseHealthBy(1);
     }
 
     public boolean statIsAtThreshold(Character character) {

@@ -9,7 +9,7 @@ public class CheckHygeneLowEvent extends StatCheckEvent {
     public CheckHygeneLowEvent(Hellscape hellscape) { super(30, hellscape); }
 
     public void statTriggerAction(Hellscape hellscape) {
-        hellscape.getCharacter().decreaseHealth();
+        hellscape.getCharacter().decreaseHealthBy(2);
     }
 
     public boolean statIsAtThreshold(Character character) {
