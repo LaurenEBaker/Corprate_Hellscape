@@ -2,6 +2,8 @@ package com.corporate.hellscape;
 
 import java.io.IOException;
 
+import com.corporate.GuiControls.GameLoop;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -10,11 +12,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 public class JavaFXController{
+
+    private GameLoop _gameLoop = new GameLoop(this);
+
     @FXML
     public ImageView image;
 
@@ -41,6 +47,9 @@ public class JavaFXController{
     public MenuButton deStressButton;
 
     @FXML
+    public TextArea messagesTextArea;
+
+    @FXML
     public void initialize(){
         healthBar.setProgress(1.0);
         hungerBar.setProgress(0.0);
@@ -49,6 +58,8 @@ public class JavaFXController{
         hygieneBar.setProgress(1.0);
         funBar.setProgress(0.5);
         workLoadBar.setProgress(0.5);
+
+        _gameLoop.start();
     }
 
     public void workButtonClicked(ActionEvent event) throws IOException{
@@ -107,5 +118,9 @@ public class JavaFXController{
 
     public void exitGameButtonClicked(ActionEvent event) throws IOException{
         //Exit game
+    }
+
+    public void showLogMessage(String message) {
+        messagesTextArea.appendText(message + "\n");
     }
 }

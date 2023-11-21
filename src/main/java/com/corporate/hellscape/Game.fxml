@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -141,6 +142,11 @@
                   <Insets left="37.5" right="37.5" top="50.0" />
                </VBox.margin>
             </Button>
+            <TextArea fx:id="messagesTextArea" prefHeight="100.0" prefWidth="245.0" editable="false">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </TextArea> 
          </children>
       </VBox>
       <HBox layoutX="10.0" layoutY="615.0" prefHeight="95.0" prefWidth="935.0">
