@@ -3,6 +3,10 @@ package com.corporate.hellscape;
 import java.io.IOException;
 
 import com.corporate.GuiControls.GameLoop;
+import com.corporate.hellscape.events.InputEvents.FeedCharacterInputEvent;
+import com.corporate.hellscape.events.InputEvents.RelaxCharacterInputEvent;
+import com.corporate.hellscape.events.InputEvents.ShowerCharacterInputEvent;
+import com.corporate.hellscape.events.InputEvents.SleepCharacterInputEvent;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -19,7 +23,8 @@ import javafx.util.Duration;
 
 public class JavaFXController{
 
-    private GameLoop _gameLoop = new GameLoop(this);
+    private Hellscape _hellscape = new Hellscape();
+    private GameLoop _gameLoop = new GameLoop(this, _hellscape);
 
     @FXML
     public ImageView image;
@@ -69,6 +74,8 @@ public class JavaFXController{
 
     public void eatButtonClicked(ActionEvent event){
 
+        _hellscape.registerEvent(new FeedCharacterInputEvent());
+
         //Example Animation
         image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
 
@@ -98,18 +105,15 @@ public class JavaFXController{
     }
 
     public void sleepButtonClicked(ActionEvent event) throws IOException{
-        //Increase staminaBar
-        //Play animation for sleeping
+        _hellscape.registerEvent(new SleepCharacterInputEvent());
     }
 
     public void enjoymentButtonClicked(ActionEvent event) throws IOException{
-        //Increase funBar
-        //Play animation for enjoyment
+        _hellscape.registerEvent(new RelaxCharacterInputEvent());
     }
 
     public void cleanButtonClicked(ActionEvent event) throws IOException{
-        //Increase hygieneBar
-        //Play animation for cleaning
+        _hellscape.registerEvent(new ShowerCharacterInputEvent());
     }
 
     public void saveGameButtonClicked(ActionEvent event) throws IOException{
