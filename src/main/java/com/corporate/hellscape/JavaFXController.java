@@ -2,7 +2,8 @@ package com.corporate.hellscape;
 
 import java.io.IOException;
 
-import com.corporate.GuiControls.GameLoop;
+import com.corporate.hellscape.GuiControls.GameLoop;
+import com.corporate.hellscape.character.CharacterState;
 import com.corporate.hellscape.events.InputEvents.FeedCharacterInputEvent;
 import com.corporate.hellscape.events.InputEvents.RelaxCharacterInputEvent;
 import com.corporate.hellscape.events.InputEvents.ShowerCharacterInputEvent;
@@ -31,6 +32,8 @@ public class JavaFXController{
 
     @FXML
     public Label dayCountLabel;
+    @FXML
+    public Label characterStateLabel;
 
     @FXML
     public ProgressBar healthBar;
@@ -126,5 +129,13 @@ public class JavaFXController{
 
     public void showLogMessage(String message) {
         messagesTextArea.appendText(message + "\n");
+    }
+
+    public void setCharacterStateDisplay(CharacterState characterState) {
+
+        characterStateLabel.setText(String.format(
+            "%s is %s",
+            _hellscape.getCharacter().getName(),
+            characterState.toString() ));
     }
 }

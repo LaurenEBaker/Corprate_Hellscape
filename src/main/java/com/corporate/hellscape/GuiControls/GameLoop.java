@@ -1,4 +1,4 @@
-package com.corporate.GuiControls;
+package com.corporate.hellscape.GuiControls;
 
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.JavaFXController;
@@ -44,6 +44,8 @@ public class GameLoop extends AnimationTimer {
 
         //TODO: Check for game not running no more
         _hellscape.SimulateOnce();
+
+        _parentController.setCharacterStateDisplay(_hellscape.getCharacter().getState());
 
         for(String message : _hellscape.getPendingMessages())
             _parentController.showLogMessage(message);

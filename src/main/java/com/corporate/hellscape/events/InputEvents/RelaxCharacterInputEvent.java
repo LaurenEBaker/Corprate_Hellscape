@@ -2,23 +2,18 @@ package com.corporate.hellscape.events.InputEvents;
 
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.character.Character;
-import com.corporate.hellscape.events.Event;
+import com.corporate.hellscape.character.CharacterState;
 
-public class RelaxCharacterInputEvent extends Event {
+public class RelaxCharacterInputEvent extends InputEvent {
 
-    public RelaxCharacterInputEvent(){ }
+    public RelaxCharacterInputEvent(){ super("relax", CharacterState.Chilling, 60); }
 
-    @Override
-    public boolean isTriggered(Hellscape hellscape) {
-      return true;
-    }
+    protected void inputAction(Hellscape hellscape) {
 
-    @Override
-    protected void triggerAction(Hellscape hellscape) {
         Character character = hellscape.getCharacter();
         int oldStress = character.getStress();
 
-        hellscape.getCharacter().decreaseStress();
+        character.decreaseStress();
 
         int newStress = character.getStress();
 
