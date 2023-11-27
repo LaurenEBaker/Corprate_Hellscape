@@ -23,7 +23,7 @@
                   <Font name="Microsoft PhagsPa Bold" size="25.0" />
                </font>
             </Label>
-            <ProgressBar fx:id="healthBar" prefHeight="30.0" prefWidth="475.0" progress="0.0" />
+            <ProgressBar fx:id="healthBar" prefHeight="30.0" prefWidth="475.0" progress="0.0" style= "-fx-accent: green " />
             <HBox prefHeight="35.0" prefWidth="475.0">
                <children>
                   <Label alignment="CENTER" prefHeight="20.0" prefWidth="300.0" text="Hunger">
