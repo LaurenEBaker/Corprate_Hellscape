@@ -2,6 +2,7 @@ package com.corporate.hellscape.GuiControls;
 
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.JavaFXController;
+import com.corporate.hellscape.character.Character;
 
 import javafx.animation.AnimationTimer;
 
@@ -20,6 +21,19 @@ public class GameLoop extends AnimationTimer {
         _parentController = parentController;
     }
 
+    public void updateProgressBar(Character slave){
+
+        //Link up stat progress bar here to character stat by dividing with (double)100.
+        _parentController.healthBar.setProgress(slave.getHealth()/100.0);
+        _parentController.hungerBar.setProgress(slave.getHunger()/100.0);
+        _parentController.stressBar.setProgress(slave.getStress()/100.0);
+        _parentController.staminaBar.setProgress(slave.getStamina()/100.0);
+        _parentController.hygieneBar.setProgress(slave.getHygiene()/100.0);
+        _parentController.funBar.setProgress(slave.getFun()/100.0);
+        _parentController.workLoadBar.setProgress(slave.getWorkload()/100.0);
+
+    }
+
     public void handle(long now) {
 
         //Only run a simulation pass if enough real-world time has passed
@@ -35,5 +49,12 @@ public class GameLoop extends AnimationTimer {
 
         for(String message : _hellscape.getPendingMessages())
             _parentController.showLogMessage(message);
+
+        updateProgressBar(_hellscape.getCharacter());
+
+        
+
+        
+       
     }
 }
