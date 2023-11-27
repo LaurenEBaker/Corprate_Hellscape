@@ -1,20 +1,19 @@
 package com.corporate.hellscape.events.InputEvents;
 
-import com.corporate.hellscape.events.Event;
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.character.Character;
+import com.corporate.hellscape.character.CharacterState;
 
-public class FeedCharacterInputEvent extends Event {
+public class FeedCharacterInputEvent extends InputEvent {
 
-    public FeedCharacterInputEvent() { }
-    public boolean isTriggered(Hellscape hellscape) { return true; }
+    public FeedCharacterInputEvent() { super("eat", CharacterState.Eating, 60); }
 
-    protected void triggerAction(Hellscape hellscape) {
+    protected void inputAction(Hellscape hellscape) {
 
         Character character = hellscape.getCharacter();
         int oldHunger = character.getHunger();
 
-        hellscape.getCharacter().decreaseHunger();
+        character.decreaseHunger();
 
         int newHunger = character.getHunger();
 

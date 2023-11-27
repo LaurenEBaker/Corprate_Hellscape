@@ -5,12 +5,13 @@ public class Character {
     //Class fields
     private String Name;
     private int Health;
-    private  int Stress;
-    private  int Hunger;
-    private  int Stamina;
-    private  int Fun;
-    private  int Hygiene;
-    private  int Workload;
+    private int Stress;
+    private int Hunger;
+    private int Stamina;
+    private int Fun;
+    private int Hygiene;
+    private int Workload;
+    private CharacterState State;
 
     
     public Character(String name) {
@@ -22,6 +23,7 @@ public class Character {
         Fun=100;
         Hygiene=100;
         Workload=0;
+        State=CharacterState.Working;
     }
 
     private static int _clamp(int inValue, int lowerBound, int upperBound) {
@@ -31,7 +33,11 @@ public class Character {
                                     inValue    ;
     }
 
+    //Always check this before attempting to set the state
+    public boolean isBusy() { return State != CharacterState.Working; }
+
     //Getter Function
+    public CharacterState getState() { return State; }
     public String getName()  { return Name; }
     public int getHealth()   { return Health; }
     public int getStress()   { return Stress; }
@@ -42,6 +48,11 @@ public class Character {
     public int getWorkload() { return Workload; }
 
     //Setter Funtion
+
+    //Only allowed to set the state if we're at idle
+    public void setState(CharacterState state) { if(!isBusy()) State = state; }
+    //Only allowed to clear the state if the state we're asking to clear is actually the one the character is in
+    public void clearState(CharacterState state) { if(State == state) State = CharacterState.Working; }
     public void setName(String name)      { Name = name; }
     public void setHealth(int health)     { Health = _clamp(health, 0, 100); }
     public void setHunger(int hunger)     { Hunger = _clamp(hunger, 0, 100); }
