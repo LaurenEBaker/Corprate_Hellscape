@@ -57,7 +57,7 @@ public class JavaFXController{
     @FXML
     public TextArea messagesTextArea;
 
-    public CharacterState characterState;
+    public CharacterState characterState = CharacterState.Working;
 
     @FXML
     public void initialize(){
