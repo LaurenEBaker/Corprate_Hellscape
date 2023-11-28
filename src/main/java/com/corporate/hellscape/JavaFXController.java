@@ -57,6 +57,8 @@ public class JavaFXController{
     @FXML
     public TextArea messagesTextArea;
 
+    public CharacterState characterState;
+
     @FXML
     public void initialize(){
         healthBar.setProgress(1.0);
@@ -71,13 +73,19 @@ public class JavaFXController{
     }
 
     public void workButtonClicked(ActionEvent event) throws IOException{
+        if(characterState == CharacterState.Working)
+            characterState = CharacterState.WorkingHarder;
         //Increase workLoadBar
         //Play animation for working
+
+        characterState = CharacterState.Chilling;
     }
 
     public void eatButtonClicked(ActionEvent event){
-
-        _hellscape.registerEvent(new FeedCharacterInputEvent());
+        if(characterState == CharacterState.Working){
+            characterState = CharacterState.Eating;
+            _hellscape.registerEvent(new FeedCharacterInputEvent());
+        }
 
         //Example Animation
         image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
@@ -103,20 +111,37 @@ public class JavaFXController{
         timeline.setCycleCount(5);
         timeline.play();
 
+        characterState = CharacterState.Working;
+
         hungerBar.setProgress(hungerProgress);
         hungerProgress -= 0.1;
     }
 
     public void sleepButtonClicked(ActionEvent event) throws IOException{
-        _hellscape.registerEvent(new SleepCharacterInputEvent());
+        if(characterState == CharacterState.Working){
+            characterState = CharacterState.Sleeping;
+            _hellscape.registerEvent(new SleepCharacterInputEvent());
+        }
+
+        characterState = CharacterState.Working;
     }
 
     public void enjoymentButtonClicked(ActionEvent event) throws IOException{
-        _hellscape.registerEvent(new RelaxCharacterInputEvent());
+        if(characterState == CharacterState.Working){
+            characterState = CharacterState.Chilling;
+            _hellscape.registerEvent(new RelaxCharacterInputEvent());
+        }
+
+        characterState = CharacterState.Working;
     }
 
     public void cleanButtonClicked(ActionEvent event) throws IOException{
-        _hellscape.registerEvent(new ShowerCharacterInputEvent());
+        if(characterState == CharacterState.Working){
+            characterState = CharacterState.Showering;
+            _hellscape.registerEvent(new ShowerCharacterInputEvent());
+        }
+
+        characterState = CharacterState.Working;
     }
 
     public void saveGameButtonClicked(ActionEvent event) throws IOException{

@@ -5,5 +5,6 @@ public enum CharacterState {
     Sleeping,
     Showering,
     Eating,
-    Chilling
+    Chilling,
+    WorkingHarder
 }
