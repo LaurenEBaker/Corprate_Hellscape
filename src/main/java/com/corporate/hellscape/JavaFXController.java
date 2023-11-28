@@ -52,13 +52,10 @@ public class JavaFXController{
     public ProgressBar workLoadBar;
 
     @FXML
-    public MenuButton deStressButton;
-
-    @FXML
     public TextArea messagesTextArea;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         healthBar.setProgress(1.0);
         hungerBar.setProgress(0.0);
         stressBar.setProgress(0.0);
@@ -70,7 +67,7 @@ public class JavaFXController{
         _gameLoop.start();
     }
 
-    public void workButtonClicked(ActionEvent event) throws IOException{
+    public void workButtonClicked(ActionEvent event) throws IOException {
         //Increase workLoadBar
         //Play animation for working
     }
@@ -107,23 +104,19 @@ public class JavaFXController{
         hungerProgress -= 0.1;
     }
 
-    public void sleepButtonClicked(ActionEvent event) throws IOException{
+    public void sleepButtonClicked(ActionEvent event) throws IOException {
         _hellscape.registerEvent(new SleepCharacterInputEvent());
     }
 
-    public void enjoymentButtonClicked(ActionEvent event) throws IOException{
+    public void enjoymentButtonClicked(ActionEvent event) throws IOException {
         _hellscape.registerEvent(new RelaxCharacterInputEvent());
     }
 
-    public void cleanButtonClicked(ActionEvent event) throws IOException{
+    public void cleanButtonClicked(ActionEvent event) throws IOException {
         _hellscape.registerEvent(new ShowerCharacterInputEvent());
     }
 
-    public void saveGameButtonClicked(ActionEvent event) throws IOException{
-        //Save game
-    }
-
-    public void exitGameButtonClicked(ActionEvent event) throws IOException{
+    public void exitGameButtonClicked(ActionEvent event) throws IOException {
         //Exit game
     }
 
