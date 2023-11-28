@@ -39,7 +39,6 @@ public class JavaFXController{
     public ProgressBar healthBar;
     @FXML
     public ProgressBar hungerBar;
-    public double hungerProgress = 1.0;
     @FXML
     public ProgressBar stressBar;
     @FXML
@@ -114,8 +113,7 @@ public class JavaFXController{
 
         characterState = CharacterState.Working;
 
-        hungerBar.setProgress(hungerProgress);
-        hungerProgress -= 0.1;
+        hungerBar.setProgress(_hellscape.getCharacter().getHunger()/100);
     }
 
     public void sleepButtonClicked(ActionEvent event) throws IOException{
