@@ -13,7 +13,7 @@ public class SleepCharacterInputEvent extends InputEvent {
         Character character = hellscape.getCharacter();
         int oldStamina = character.getStamina();
 
-        character.increaseStamina();
+        character.increaseStaminaBy(4);;
 
         int newStamina = character.getStamina();
 
