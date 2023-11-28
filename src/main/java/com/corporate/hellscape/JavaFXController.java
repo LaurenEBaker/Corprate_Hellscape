@@ -73,43 +73,44 @@ public class JavaFXController{
     }
 
     public void workButtonClicked(ActionEvent event) throws IOException{
-        if(characterState == CharacterState.Working)
+        if(characterState == CharacterState.Working){
             characterState = CharacterState.WorkingHarder;
+        }
         //Increase workLoadBar
         //Play animation for working
 
-        characterState = CharacterState.Chilling;
+        characterState = CharacterState.Working;
     }
 
     public void eatButtonClicked(ActionEvent event){
         if(characterState == CharacterState.Working){
             characterState = CharacterState.Eating;
             _hellscape.registerEvent(new FeedCharacterInputEvent());
+
+            //Example Animation
+            image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
+
+            Timeline timeline = new Timeline();
+            timeline.getKeyFrames().add(new KeyFrame(Duration.millis(100), new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+                    image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite1.png"));
+                }
+            
+            }));
+            timeline.getKeyFrames().add(new KeyFrame(Duration.millis(200), new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+                    image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
+                }
+            
+            }));
+
+            timeline.setCycleCount(5);
+            timeline.play();
         }
-
-        //Example Animation
-        image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
-
-        Timeline timeline = new Timeline();
-        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(100), new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite1.png"));
-            }
-            
-        }));
-        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(200), new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
-            }
-            
-        }));
-
-        timeline.setCycleCount(5);
-        timeline.play();
 
         characterState = CharacterState.Working;
 
