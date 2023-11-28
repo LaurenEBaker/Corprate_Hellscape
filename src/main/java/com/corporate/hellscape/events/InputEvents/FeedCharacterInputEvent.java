@@ -13,7 +13,7 @@ public class FeedCharacterInputEvent extends InputEvent {
         Character character = hellscape.getCharacter();
         int oldHunger = character.getHunger();
 
-        character.decreaseHunger();
+        character.decreaseHungerBy(5);;
 
         int newHunger = character.getHunger();
 
