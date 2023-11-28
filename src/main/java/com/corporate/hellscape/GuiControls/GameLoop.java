@@ -3,6 +3,7 @@ package com.corporate.hellscape.GuiControls;
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.JavaFXController;
 import com.corporate.hellscape.character.Character;
+import com.corporate.hellscape.character.CharacterState;
 
 import javafx.animation.AnimationTimer;
 
@@ -38,6 +39,38 @@ public class GameLoop extends AnimationTimer {
         if (slave.getFun()<50) {_parentController.funBar.setStyle( "-fx-accent: yellow; ");}
         _parentController.workLoadBar.setProgress(slave.getWorkload()/100.0);
         if (slave.getWorkload()>50) {_parentController.workLoadBar.setStyle( "-fx-accent: red; ");}
+
+    }
+
+    public void caseAnimation(Character slave){
+
+        CharacterState  slaveState = slave.getState();
+        CharacterState state;
+
+        switch (slaveState) {
+            case value:
+                
+                break;
+        
+            default:
+                break;
+        }
+
+    }
+
+    //TODO: Connect the animation base on character state
+    public void updateAnimationOnState(Character slave){
+
+        CharacterState currState = slave.getState();
+
+        if(currState != CharacterState.Working){
+
+            //TODO: Set the correct animation base on current state
+
+            // _hellscape.getCharacter();
+            _parentController.image.setImage(null);
+
+        }
 
     }
 
