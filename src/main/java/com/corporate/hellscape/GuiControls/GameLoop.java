@@ -1,5 +1,7 @@
 package com.corporate.hellscape.GuiControls;
 
+import java.time.format.DateTimeFormatter;
+
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.JavaFXController;
 import com.corporate.hellscape.character.Character;
@@ -58,6 +60,10 @@ public class GameLoop extends AnimationTimer {
             _parentController.showLogMessage(message);
 
         updateProgressBar(_hellscape.getCharacter());
+
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd HH:mm:ss");
+         String formattedDateTime = _hellscape.getGameTime().format(formatter);
+        _parentController.dayCountLabel.setText("Day "+formattedDateTime);
 
         
 
