@@ -14,19 +14,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.corporate.hellscape.JavaFXController">
+<Pane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgb(32,32,32);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.corporate.hellscape.JavaFXController">
    <children>
-      <VBox layoutX="950.0" layoutY="10.0" prefHeight="580.0" prefWidth="320.0">
+      <VBox blendMode="SRC_ATOP" layoutX="950.0" layoutY="10.0" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: rgb(50,50,50); -fx-background-radius: 10;">
          <children>
-            <Label alignment="CENTER" prefHeight="24.0" prefWidth="477.0" text="Health" textAlignment="CENTER">
+            <Label alignment="CENTER" prefHeight="24.0" prefWidth="477.0" text="Health" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Microsoft PhagsPa Bold" size="25.0" />
                </font>
             </Label>
-            <ProgressBar fx:id="healthBar" prefHeight="30.0" prefWidth="475.0" progress="0.0" style="-fx-accent: green " />
+            <ProgressBar fx:id="healthBar" prefHeight="30.0" prefWidth="475.0" progress="0.0" style="-fx-accent: rgb(25,255,0); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30); -fx-background-insets: 0;">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </VBox.margin></ProgressBar>
             <HBox prefHeight="35.0" prefWidth="475.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="300.0" text="Hunger">
+                  <Label alignment="CENTER" prefHeight="20.0" prefWidth="300.0" text="Hunger" textFill="WHITE">
                      <font>
                         <Font name="Microsoft PhagsPa Bold" size="20.0" />
                      </font>
@@ -34,7 +37,7 @@
                         <Insets top="10.0" />
                      </padding>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Stress">
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Stress" textFill="WHITE">
                      <font>
                         <Font name="Microsoft PhagsPa Bold" size="20.0" />
                      </font>
@@ -46,21 +49,21 @@
             </HBox>
             <HBox prefHeight="25.0" prefWidth="475.0">
                <children>
-                  <ProgressBar fx:id="hungerBar" prefHeight="20.0" prefWidth="300.0" progress="0.0">
+                  <ProgressBar fx:id="hungerBar" prefHeight="20.0" prefWidth="300.0" progress="0.0" style="-fx-accent: rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);">
                      <padding>
-                        <Insets right="5.0" />
+                        <Insets left="10.0" right="5.0" />
                      </padding>
                   </ProgressBar>
-                  <ProgressBar fx:id="stressBar" prefHeight="20.0" prefWidth="300.0" progress="0.0">
+                  <ProgressBar fx:id="stressBar" prefHeight="20.0" prefWidth="300.0" progress="0.0" style="-fx-accent: rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);">
                      <padding>
-                        <Insets left="5.0" />
+                        <Insets left="5.0" right="10.0" />
                      </padding>
                   </ProgressBar>
                </children>
             </HBox>
             <HBox prefHeight="40.0" prefWidth="475.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Stamina">
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Stamina" textFill="WHITE">
                      <font>
                         <Font name="Microsoft PhagsPa Bold" size="20.0" />
                      </font>
@@ -68,7 +71,7 @@
                         <Insets top="10.0" />
                      </padding>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Hygiene">
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Hygiene" textFill="WHITE">
                      <font>
                         <Font name="Microsoft PhagsPa Bold" size="20.0" />
                      </font>
@@ -80,21 +83,21 @@
             </HBox>
             <HBox prefHeight="25.0" prefWidth="200.0">
                <children>
-                  <ProgressBar fx:id="staminaBar" prefHeight="20.0" prefWidth="300.0" progress="0.0">
+                  <ProgressBar fx:id="staminaBar" prefHeight="20.0" prefWidth="300.0" progress="0.0" style="-fx-accent: rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);">
                      <padding>
-                        <Insets right="5.0" />
+                        <Insets left="10.0" right="5.0" />
                      </padding>
                   </ProgressBar>
-                  <ProgressBar fx:id="hygieneBar" prefHeight="20.0" prefWidth="300.0" progress="0.0">
+                  <ProgressBar fx:id="hygieneBar" prefHeight="20.0" prefWidth="300.0" progress="0.0" style="-fx-accent: rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);">
                      <padding>
-                        <Insets left="5.0" />
+                        <Insets left="5.0" right="10.0" />
                      </padding>
                   </ProgressBar>
                </children>
             </HBox>
             <HBox prefHeight="40.0" prefWidth="475.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Fun">
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Fun" textFill="WHITE">
                      <font>
                         <Font name="Microsoft PhagsPa Bold" size="20.0" />
                      </font>
@@ -102,7 +105,7 @@
                         <Insets top="10.0" />
                      </padding>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Work Load">
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Work Load" textFill="WHITE">
                      <font>
                         <Font name="Microsoft PhagsPa Bold" size="20.0" />
                      </font>
@@ -114,14 +117,14 @@
             </HBox>
             <HBox prefHeight="25.0" prefWidth="475.0">
                <children>
-                  <ProgressBar fx:id="funBar" prefHeight="20.0" prefWidth="300.0" progress="0.0">
+                  <ProgressBar fx:id="funBar" prefHeight="20.0" prefWidth="300.0" progress="0.0" style="-fx-accent: rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);">
                      <padding>
-                        <Insets right="5.0" />
+                        <Insets left="10.0" right="5.0" />
                      </padding>
                   </ProgressBar>
-                  <ProgressBar fx:id="workLoadBar" prefHeight="20.0" prefWidth="300.0" progress="0.0">
+                  <ProgressBar fx:id="workLoadBar" prefHeight="20.0" prefWidth="300.0" progress="0.0" style="-fx-accent: rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);">
                      <padding>
-                        <Insets left="5.0" />
+                        <Insets left="5.0" right="10.0" />
                      </padding>
                   </ProgressBar>
                </children>
@@ -144,20 +147,20 @@
             </Button>
             <TextArea fx:id="messagesTextArea" editable="false" prefHeight="100.0" prefWidth="245.0">
                <VBox.margin>
-                  <Insets top="50.0" />
+                  <Insets left="10.0" right="10.0" top="50.0" />
                </VBox.margin>
             </TextArea> 
             <Label fx:id="characterStateLabel" text="" />
          </children>
       </VBox>
-      <HBox layoutX="10.0" layoutY="615.0" prefHeight="95.0" prefWidth="935.0">
+      <HBox layoutX="10.0" layoutY="599.0" prefHeight="100.0" prefWidth="930.0" style="-fx-background-color: rgb(50,50,50); -fx-background-radius: 10;">
          <children>
             <Button fx:id="workButton" mnemonicParsing="false" onAction="#workButtonClicked" prefHeight="100.0" prefWidth="225.0" text="Delegate">
                <font>
                   <Font name="Microsoft PhagsPa Bold" size="15.0" />
                </font>
                <HBox.margin>
-                  <Insets bottom="21.0" right="25.0" top="21.0" />
+                  <Insets bottom="21.0" left="10.0" right="25.0" top="21.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="eatButton" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#eatButtonClicked" prefHeight="100.0" prefWidth="225.0" text="Eat" wrapText="true">
@@ -225,7 +228,7 @@
                   <Font name="Microsoft PhagsPa Bold" size="15.0" />
                </font>
                <HBox.margin>
-                  <Insets bottom="21.0" left="25.0" top="21.0" />
+                  <Insets bottom="21.0" left="25.0" right="10.0" top="21.0" />
                </HBox.margin>
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
@@ -242,7 +245,7 @@
             <Image url="@Animations/pixeldude.png" />
          </image>
       </ImageView>
-      <Label fx:id="dayCountLabel" layoutX="10.0" layoutY="10.0" prefHeight="70.0" prefWidth="250.0" text="Day: 0">
+      <Label fx:id="dayCountLabel" layoutX="10.0" layoutY="10.0" prefHeight="70.0" prefWidth="250.0" text="Day: 0" textFill="WHITE">
          <font>
             <Font name="Microsoft PhagsPa Bold" size="45.0" />
          </font>
