@@ -60,7 +60,7 @@ public class JavaFXController{
 
     @FXML
     public TextArea messagesTextArea;
-     @FXML
+    @FXML
     public Button workButton;
 
     @FXML
