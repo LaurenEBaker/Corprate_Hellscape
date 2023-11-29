@@ -126,28 +126,20 @@
                   </ProgressBar>
                </children>
             </HBox>
-            <Button fx:id="saveGameButton" mnemonicParsing="false" onAction="#saveGameButtonClicked" prefHeight="70.0" prefWidth="244.0" text="Save Game">
-               <font>
-                  <Font name="Microsoft PhagsPa Bold" size="25.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="37.5" right="37.5" top="50.0" />
-               </VBox.margin>
-            </Button>
             <Button fx:id="exitGameButton" mnemonicParsing="false" onAction="#exitGameButtonClicked" prefHeight="70.0" prefWidth="245.0" text="Exit Game">
                <font>
                   <Font name="Microsoft PhagsPa Bold" size="25.0" />
                </font>
                <VBox.margin>
-                  <Insets left="37.5" right="37.5" top="50.0" />
+                  <Insets left="37.5" right="37.5" top="30.0" />
                </VBox.margin>
             </Button>
-            <TextArea fx:id="messagesTextArea" editable="false" prefHeight="100.0" prefWidth="245.0">
+            <Label fx:id="characterStateLabel" text="">
                <VBox.margin>
-                  <Insets top="50.0" />
+                  <Insets top="30.0" />
                </VBox.margin>
-            </TextArea> 
-            <Label fx:id="characterStateLabel" text="" />
+            </Label>
+            <TextArea fx:id="messagesTextArea" editable="false" prefHeight="250.0" prefWidth="245.0" />
          </children>
       </VBox>
       <HBox layoutX="10.0" layoutY="615.0" prefHeight="95.0" prefWidth="935.0">
@@ -216,25 +208,6 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <MenuButton fx:id="deStressButton" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="225.0" text="De-stress">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Activity 1" />
-                <MenuItem mnemonicParsing="false" text="Activity 2" />
-              </items>
-               <font>
-                  <Font name="Microsoft PhagsPa Bold" size="15.0" />
-               </font>
-               <HBox.margin>
-                  <Insets bottom="21.0" left="25.0" top="21.0" />
-               </HBox.margin>
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Animations/destress.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </MenuButton>
          </children>
       </HBox>
       <ImageView fx:id="image" fitHeight="580.0" fitWidth="930.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true">
