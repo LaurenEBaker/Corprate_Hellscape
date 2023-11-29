@@ -1,9 +1,0 @@
-.progress-bar { 
-    -fx-control-inner-background: rgb(50,50,50);
-    -fx-text-box-border: rgb(30, 30, 30);
-}
-
-.progress-bar > .bar{
-    -fx-padding: 1px;
-}
-
