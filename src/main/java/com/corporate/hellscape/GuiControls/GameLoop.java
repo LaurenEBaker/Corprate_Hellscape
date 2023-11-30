@@ -83,6 +83,10 @@ public class GameLoop extends AnimationTimer {
         //Praying
         aniImages.put(CharacterState.Praying.ordinal(), new Image[]{new Image(("/Animations/praying1.png").toString()), 
             new Image(("/Animations/praying2.png").toString())});
+
+        //Delegate
+        aniImages.put(CharacterState.Delegate.ordinal(), new Image[]{new Image(("/Animations/standing1.png").toString()), 
+            new Image(("/Animations/standing2.png").toString())});
         
         
         return aniImages;
