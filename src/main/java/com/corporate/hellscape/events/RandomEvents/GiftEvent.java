@@ -7,7 +7,7 @@ public class GiftEvent extends ImmediateEvent {
 
     public void triggerAction(Hellscape hellscape) {
         hellscape.logMessage("Your friend got you a nice gift! (stress down, fun up)");
-		hellscape.getCharacter().decreaseStress();
-		hellscape.getCharacter().increaseFun();;
+		hellscape.getCharacter().decreaseStressBy(3);
+		hellscape.getCharacter().increaseFunBy(3);
     }
 }
