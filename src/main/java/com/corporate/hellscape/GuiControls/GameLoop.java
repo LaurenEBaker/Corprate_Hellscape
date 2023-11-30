@@ -87,6 +87,10 @@ public class GameLoop extends AnimationTimer {
         //Delegate
         aniImages.put(CharacterState.Delegate.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/standing1.png").toString()), 
             new Image(getClass().getResource("/Animations/standing2.png").toString())});
+
+        //Dead
+        aniImages.put(CharacterState.Dead.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/dead.png").toString()), 
+            new Image(getClass().getResource("/Animations/dead.png").toString())});
         
         
         return aniImages;
