@@ -1,5 +1,7 @@
 package com.corporate.hellscape.GuiControls;
 
+import java.time.format.DateTimeFormatter;
+
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.JavaFXController;
 import com.corporate.hellscape.character.Character;
@@ -26,18 +28,25 @@ public class GameLoop extends AnimationTimer {
         //Link up stat progress bar here to character stat by dividing with (double)100.
         _parentController.healthBar.setProgress(slave.getHealth()/100.0);
         if (slave.getHealth()<50) {_parentController.healthBar.setStyle( "-fx-accent: red; " +  "-fx-border-color: #c0392b; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
+        else {_parentController.healthBar.setStyle( "-fx-accent: green; ");}
         _parentController.hungerBar.setProgress(slave.getHunger()/100.0);
         if (slave.getHunger()>50) {_parentController.hungerBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
+        else {_parentController.hungerBar.setStyle( "-fx-accent: #00CED1; ");}
         _parentController.stressBar.setProgress(slave.getStress()/100.0);
         if (slave.getStress()>50) {_parentController.stressBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
+        else {_parentController.stressBar.setStyle( "-fx-accent: #00CED1; ");}
         _parentController.staminaBar.setProgress(slave.getStamina()/100.0);
         if (slave.getStamina()<50) {_parentController.staminaBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
+        else {_parentController.staminaBar.setStyle( "-fx-accent: #00CED1; ");}
         _parentController.hygieneBar.setProgress(slave.getHygiene()/100.0);
         if (slave.getHygiene()<50) {_parentController.hygieneBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
+        else {_parentController.hygieneBar.setStyle( "-fx-accent: #00CED1; ");}
         _parentController.funBar.setProgress(slave.getFun()/100.0);
         if (slave.getFun()<50) {_parentController.funBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
+        else {_parentController.funBar.setStyle( "-fx-accent: #00CED1; ");}
         _parentController.workLoadBar.setProgress(slave.getWorkload()/100.0);
         if (slave.getWorkload()>50) {_parentController.workLoadBar.setStyle( "-fx-accent: red; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
+        else {_parentController.workLoadBar.setStyle( "-fx-accent: #00CED1; ");}
 
     }
 
@@ -58,6 +67,10 @@ public class GameLoop extends AnimationTimer {
             _parentController.showLogMessage(message);
 
         updateProgressBar(_hellscape.getCharacter());
+
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd HH:mm:ss");
+         String formattedDateTime = _hellscape.getGameTime().format(formatter);
+        _parentController.dayCountLabel.setText("Day "+formattedDateTime);
 
         
 
