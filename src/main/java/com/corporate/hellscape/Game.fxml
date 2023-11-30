@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.corporate.hellscape.JavaFXController">
+<Pane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.corporate.hellscape.JavaFXController">
    <children>
       <VBox layoutX="950.0" layoutY="10.0" prefHeight="580.0" prefWidth="320.0">
          <children>
@@ -23,7 +23,7 @@
                   <Font name="Microsoft PhagsPa Bold" size="25.0" />
                </font>
             </Label>
-            <ProgressBar fx:id="healthBar" prefHeight="30.0" prefWidth="475.0" progress="0.0" style= "-fx-accent: green " />
+            <ProgressBar fx:id="healthBar" prefHeight="30.0" prefWidth="475.0" progress="0.0" style="-fx-accent: green " />
             <HBox prefHeight="35.0" prefWidth="475.0">
                <children>
                   <Label alignment="CENTER" prefHeight="20.0" prefWidth="300.0" text="Hunger">
@@ -126,33 +126,25 @@
                   </ProgressBar>
                </children>
             </HBox>
-            <Button fx:id="saveGameButton" mnemonicParsing="false" onAction="#saveGameButtonClicked" prefHeight="70.0" prefWidth="244.0" text="Save Game">
-               <font>
-                  <Font name="Microsoft PhagsPa Bold" size="25.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="37.5" right="37.5" top="50.0" />
-               </VBox.margin>
-            </Button>
             <Button fx:id="exitGameButton" mnemonicParsing="false" onAction="#exitGameButtonClicked" prefHeight="70.0" prefWidth="245.0" text="Exit Game">
                <font>
                   <Font name="Microsoft PhagsPa Bold" size="25.0" />
                </font>
                <VBox.margin>
-                  <Insets left="37.5" right="37.5" top="50.0" />
+                  <Insets left="37.5" right="37.5" top="30.0" />
                </VBox.margin>
             </Button>
-            <TextArea fx:id="messagesTextArea" prefHeight="100.0" prefWidth="245.0" editable="false">
+            <Label fx:id="characterStateLabel" text="">
                <VBox.margin>
-                  <Insets top="50.0" />
+                  <Insets top="30.0" />
                </VBox.margin>
-            </TextArea> 
-            <Label fx:id="characterStateLabel" text="" />
+            </Label>
+            <TextArea fx:id="messagesTextArea" editable="false" prefHeight="250.0" prefWidth="245.0" />
          </children>
       </VBox>
       <HBox layoutX="10.0" layoutY="615.0" prefHeight="95.0" prefWidth="935.0">
          <children>
-            <Button fx:id="workButton" mnemonicParsing="false" onAction="#workButtonClicked" prefHeight="100.0" prefWidth="225.0" text="Work">
+            <Button fx:id="workButton" mnemonicParsing="false" onAction="#workButtonClicked" prefHeight="100.0" prefWidth="225.0" text="Delegate">
                <font>
                   <Font name="Microsoft PhagsPa Bold" size="15.0" />
                </font>
@@ -160,46 +152,62 @@
                   <Insets bottom="21.0" right="25.0" top="21.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="eatButton" mnemonicParsing="false" onAction="#eatButtonClicked" prefHeight="100.0" prefWidth="225.0" text="Eat">
+            <Button fx:id="eatButton" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#eatButtonClicked" prefHeight="100.0" prefWidth="225.0" text="Eat" wrapText="true">
                <font>
                   <Font name="Microsoft PhagsPa Bold" size="15.0" />
                </font>
                <HBox.margin>
                   <Insets bottom="21.0" left="25.0" right="25.0" top="21.0" />
-               </HBox.margin></Button>
-            <Button fx:id="sleepButton" mnemonicParsing="false" onAction="#sleepButtonClicked" prefHeight="100.0" prefWidth="225.0" text="Sleep">
-               <font>
-                  <Font name="Microsoft PhagsPa Bold" size="15.0" />
-               </font>
-               <HBox.margin>
-                  <Insets bottom="21.0" left="25.0" right="25.0" top="21.0" />
-               </HBox.margin></Button>
-            <Button fx:id="enjoymentButton" mnemonicParsing="false" onAction="#enjoymentButtonClicked" prefHeight="100.0" prefWidth="225.0" text="Enjoyment">
-               <font>
-                  <Font name="Microsoft PhagsPa Bold" size="15.0" />
-               </font>
-               <HBox.margin>
-                  <Insets bottom="21.0" left="25.0" right="25.0" top="21.0" />
-               </HBox.margin></Button>
-            <Button fx:id="cleanButton" mnemonicParsing="false" onAction="#cleanButtonClicked" prefHeight="100.0" prefWidth="225.0" text="Clean">
-               <font>
-                  <Font name="Microsoft PhagsPa Bold" size="15.0" />
-               </font>
-               <HBox.margin>
-                  <Insets bottom="21.0" left="25.0" right="25.0" top="21.0" />
-               </HBox.margin></Button>
-            <MenuButton fx:id="deStressButton" mnemonicParsing="false" prefHeight="100.0" prefWidth="225.0" text="De-stress">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Activity 1" />
-                <MenuItem mnemonicParsing="false" text="Activity 2" />
-              </items>
-               <font>
-                  <Font name="Microsoft PhagsPa Bold" size="15.0" />
-               </font>
-               <HBox.margin>
-                  <Insets bottom="21.0" left="25.0" top="21.0" />
                </HBox.margin>
-            </MenuButton>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Animations/burger.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="sleepButton" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#sleepButtonClicked" prefHeight="100.0" prefWidth="225.0" text="Sleep">
+               <font>
+                  <Font name="Microsoft PhagsPa Bold" size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="21.0" left="25.0" right="25.0" top="21.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Animations/sleep.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="enjoymentButton" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#enjoymentButtonClicked" prefHeight="100.0" prefWidth="225.0" text="Enjoyment">
+               <font>
+                  <Font name="Microsoft PhagsPa Bold" size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="21.0" left="25.0" right="25.0" top="21.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Animations/enjoyment.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="cleanButton" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#cleanButtonClicked" prefHeight="100.0" prefWidth="225.0" text="Clean">
+               <font>
+                  <Font name="Microsoft PhagsPa Bold" size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="21.0" left="25.0" right="25.0" top="21.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Animations/clean.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </HBox>
       <ImageView fx:id="image" fitHeight="580.0" fitWidth="930.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true">

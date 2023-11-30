@@ -6,5 +6,6 @@ public enum CharacterState {
     Showering,
     Eating,
     Chilling,
-    Praying
+    Praying,
+    Delegate
 }
