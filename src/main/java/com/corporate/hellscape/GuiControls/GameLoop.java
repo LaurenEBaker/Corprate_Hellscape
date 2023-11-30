@@ -65,28 +65,28 @@ public class GameLoop extends AnimationTimer {
             new Image(getClass().getResource("/Animations/working2.png").toString())});
 
         //Sleeping
-        aniImages.put(CharacterState.Sleeping.ordinal(), new Image[]{new Image(("/Animations/sleep1.png").toString()), 
-            new Image(("/Animations/sleep2.png").toString())});
+        aniImages.put(CharacterState.Sleeping.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/sleep1.png").toString()), 
+            new Image(getClass().getResource("/Animations/sleep2.png").toString())});
 
         //Showering
-        aniImages.put(CharacterState.Showering.ordinal(), new Image[]{new Image(("/Animations/cleaning1.png").toString()), 
-            new Image(("/Animations/cleaning2.png").toString())});
+        aniImages.put(CharacterState.Showering.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/cleaning1.png").toString()), 
+            new Image(getClass().getResource("/Animations/cleaning2.png").toString())});
 
         //Eating
-        aniImages.put(CharacterState.Eating.ordinal(), new Image[]{new Image(("/Animations/bite1.png").toString()), 
-            new Image(("/Animations/bite2.png").toString())});
+        aniImages.put(CharacterState.Eating.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/bite1.png").toString()), 
+            new Image(getClass().getResource("/Animations/bite2.png").toString())});
 
         //Chilling
-        aniImages.put(CharacterState.Chilling.ordinal(), new Image[]{new Image(("/Animations/reading1.png").toString()), 
-            new Image(("/Animations/reading2.png").toString())});
+        aniImages.put(CharacterState.Chilling.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/reading1.png").toString()), 
+            new Image(getClass().getResource("/Animations/reading2.png").toString())});
 
         //Praying
-        aniImages.put(CharacterState.Praying.ordinal(), new Image[]{new Image(("/Animations/praying1.png").toString()), 
-            new Image(("/Animations/praying2.png").toString())});
+        aniImages.put(CharacterState.Praying.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/praying1.png").toString()), 
+            new Image(getClass().getResource("/Animations/praying2.png").toString())});
 
         //Delegate
-        aniImages.put(CharacterState.Delegate.ordinal(), new Image[]{new Image(("/Animations/standing1.png").toString()), 
-            new Image(("/Animations/standing2.png").toString())});
+        aniImages.put(CharacterState.Delegate.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/standing1.png").toString()), 
+            new Image(getClass().getResource("/Animations/standing2.png").toString())});
         
         
         return aniImages;
