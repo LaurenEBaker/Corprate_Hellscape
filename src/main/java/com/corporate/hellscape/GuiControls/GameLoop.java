@@ -1,11 +1,19 @@
 package com.corporate.hellscape.GuiControls;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import javafx.util.Duration;
+
 import com.corporate.hellscape.Hellscape;
 import com.corporate.hellscape.JavaFXController;
 import com.corporate.hellscape.character.Character;
 import com.corporate.hellscape.character.CharacterState;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.scene.image.Image;
+
 
 public class GameLoop extends AnimationTimer {
 
@@ -15,11 +23,15 @@ public class GameLoop extends AnimationTimer {
     private long _lastTimestamp = 0;
     private JavaFXController _parentController;
 
+    private Map<Integer, Image[]> aniImages = hashAnimation();
+    private Timeline timeline = new Timeline();
+
     public GameLoop(JavaFXController parentController, Hellscape hellscape) {
         super();
 
         _hellscape = hellscape;
         _parentController = parentController;
+        
     }
 
     public void updateProgressBar(Character slave){
@@ -42,35 +54,68 @@ public class GameLoop extends AnimationTimer {
 
     }
 
-    public void caseAnimation(Character slave){
+    //Method that create a Concurrent hashmap of animation image object
+    private Map<Integer, Image[]> hashAnimation(){
 
-        CharacterState  slaveState = slave.getState();
-        CharacterState state;
+        //A hashmap of image object contain animation image with enum orindal as key
+        aniImages = new ConcurrentHashMap<>() ;
 
-        switch (slaveState) {
-            case value:
-                
-                break;
+        //Working
+        aniImages.put(CharacterState.Working.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/working1.png").toString()), 
+            new Image(getClass().getResource("/Animations/working2.png").toString())});
+
+        //Sleeping
+        aniImages.put(CharacterState.Sleeping.ordinal(), new Image[]{new Image(("/Animations/sleep1.png").toString()), 
+            new Image(("/Animations/sleep2.png").toString())});
+
+        //Showering
+        aniImages.put(CharacterState.Showering.ordinal(), new Image[]{new Image(("/Animations/cleaning1.png").toString()), 
+            new Image(("/Animations/cleaning2.png").toString())});
+
+        //Eating
+        aniImages.put(CharacterState.Eating.ordinal(), new Image[]{new Image(("/Animations/bite1.png").toString()), 
+            new Image(("/Animations/bite2.png").toString())});
+
+        //Chilling
+        aniImages.put(CharacterState.Chilling.ordinal(), new Image[]{new Image(("/Animations/reading1.png").toString()), 
+            new Image(("/Animations/reading2.png").toString())});
+
+        //Praying
+        aniImages.put(CharacterState.Praying.ordinal(), new Image[]{new Image(("/Animations/praying1.png").toString()), 
+            new Image(("/Animations/praying2.png").toString())});
         
-            default:
-                break;
-        }
+        
+        return aniImages;
 
     }
 
-    //TODO: Connect the animation base on character state
+    //Method to Connect the animation base on character state
     public void updateAnimationOnState(Character slave){
 
         CharacterState currState = slave.getState();
 
-        if(currState != CharacterState.Working){
+        //Amount of time to run animation frame
+        int aniTime = 200;    
+        _parentController.image.setImage(aniImages.get(currState.ordinal())[1]);
+        
+        
 
-            //TODO: Set the correct animation base on current state
+        // System.out.println("1st frame");
+        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(aniTime), e ->{
+            _parentController.image.setImage(aniImages.get(currState.ordinal())[1]);
+        }));
 
-            // _hellscape.getCharacter();
-            _parentController.image.setImage(null);
+        timeline.setDelay(Duration.millis(100));
 
-        }
+        // System.out.println("2nd frame");
+        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(aniTime + 100), e ->{
+            _parentController.image.setImage(aniImages.get(currState.ordinal())[0]);
+        }));
+
+        timeline.setCycleCount(3);
+        timeline.play();
+
+        
 
     }
 
@@ -83,8 +128,11 @@ public class GameLoop extends AnimationTimer {
         _lastTimestamp = now;
 
         //TODO: Check for game not running no more
+
+        
         _hellscape.SimulateOnce();
 
+        
         _parentController.setCharacterStateDisplay(_hellscape.getCharacter().getState());
 
         for(String message : _hellscape.getPendingMessages())
@@ -92,9 +140,23 @@ public class GameLoop extends AnimationTimer {
 
         updateProgressBar(_hellscape.getCharacter());
 
+        updateAnimationOnState(_hellscape.getCharacter());
+        timeline.setOnFinished(e -> _hellscape.SimulateOnce());
+        
+
+            
+    }
+        
+
+        
+
+       
+
+       
+
         
 
         
        
-    }
 }
+
