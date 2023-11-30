@@ -50,6 +50,7 @@ public class GameLoop extends AnimationTimer {
         _lastTimestamp = now;
 
         //TODO: Check for game not running no more
+
         _hellscape.SimulateOnce();
 
         _parentController.setCharacterStateDisplay(_hellscape.getCharacter().getState());
@@ -58,6 +59,9 @@ public class GameLoop extends AnimationTimer {
             _parentController.showLogMessage(message);
 
         updateProgressBar(_hellscape.getCharacter());
+
+        //Note to self: confirm that _gameRunning do become false once health reaches 0 //TODO: Delete before pushing
+        System.out.println(_hellscape.getCharacter().getHealth() + ": " + _hellscape.getGameRunning());
 
         
 
