@@ -38,19 +38,19 @@ public class GameLoop extends AnimationTimer {
 
         //Link up stat progress bar here to character stat by dividing with (double)100.
         _parentController.healthBar.setProgress(slave.getHealth()/100.0);
-        if (slave.getHealth()<50) {_parentController.healthBar.setStyle( "-fx-accent: red; " +  "-fx-border-color: #c0392b; ");}
+        if (slave.getHealth()<50) {_parentController.healthBar.setStyle( "-fx-accent: red; " +  "-fx-border-color: #c0392b; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
         _parentController.hungerBar.setProgress(slave.getHunger()/100.0);
-        if (slave.getHunger()>50) {_parentController.hungerBar.setStyle( "-fx-accent: yellow; ");}
+        if (slave.getHunger()>50) {_parentController.hungerBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
         _parentController.stressBar.setProgress(slave.getStress()/100.0);
-        if (slave.getStress()>50) {_parentController.stressBar.setStyle( "-fx-accent: yellow; ");}
+        if (slave.getStress()>50) {_parentController.stressBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
         _parentController.staminaBar.setProgress(slave.getStamina()/100.0);
-        if (slave.getStamina()<50) {_parentController.staminaBar.setStyle( "-fx-accent: yellow; ");}
+        if (slave.getStamina()<50) {_parentController.staminaBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
         _parentController.hygieneBar.setProgress(slave.getHygiene()/100.0);
-        if (slave.getHygiene()<50) {_parentController.hygieneBar.setStyle( "-fx-accent: yellow; ");}
+        if (slave.getHygiene()<50) {_parentController.hygieneBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
         _parentController.funBar.setProgress(slave.getFun()/100.0);
-        if (slave.getFun()<50) {_parentController.funBar.setStyle( "-fx-accent: yellow; ");}
+        if (slave.getFun()<50) {_parentController.funBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
         _parentController.workLoadBar.setProgress(slave.getWorkload()/100.0);
-        if (slave.getWorkload()>50) {_parentController.workLoadBar.setStyle( "-fx-accent: red; ");}
+        if (slave.getWorkload()>50) {_parentController.workLoadBar.setStyle( "-fx-accent: red; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
 
     }
 
