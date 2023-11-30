@@ -22,6 +22,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class JavaFXController{
@@ -56,8 +57,10 @@ public class JavaFXController{
 
     @FXML
     public TextArea messagesTextArea;
-     @FXML
+    @FXML
     public Button workButton;
+    @FXML
+    public Button exitGameButton;
 
     @FXML
     public void initialize() {
@@ -124,8 +127,9 @@ public class JavaFXController{
         _hellscape.registerEvent(new ShowerCharacterInputEvent());
     }
 
-    public void exitGameButtonClicked(ActionEvent event) throws IOException {
-        //Exit game
+    public void exitGameButtonClicked(ActionEvent event) throws IOException{
+        Stage stage = (Stage) exitGameButton.getScene().getWindow();
+        stage.close();
     }
 
     public void showLogMessage(String message) {
