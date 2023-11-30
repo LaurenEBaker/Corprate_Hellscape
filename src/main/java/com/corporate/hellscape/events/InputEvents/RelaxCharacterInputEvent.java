@@ -11,16 +11,16 @@ public class RelaxCharacterInputEvent extends InputEvent {
     protected void inputAction(Hellscape hellscape) {
 
         Character character = hellscape.getCharacter();
-        int oldStress = character.getStress();
+        int oldFun = character.getFun();
 
-        character.decreaseStress();
+        character.increaseFunBy(5);
 
-        int newStress = character.getStress();
+        int newFun = character.getFun();
 
         hellscape.logMessage(String.format(
-            "Character relaxed. stress went from %d to %d",
-            oldStress,
-            newStress ));
+            "Character relaxed. fun went from %d to %d",
+            oldFun,
+            newFun ));
     }
     
 }
