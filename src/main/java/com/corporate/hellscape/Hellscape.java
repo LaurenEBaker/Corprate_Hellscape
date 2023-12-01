@@ -19,7 +19,6 @@ import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseStaminaEven
 import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseWorkloadEvent;
 import com.corporate.hellscape.events.TimedStatusEffectEvent.IncreaseHungerEvent;
 import com.corporate.hellscape.character.Character;
-import com.corporate.hellscape.character.CharacterState;
 
 public class Hellscape {
 
@@ -115,8 +114,6 @@ public class Hellscape {
 
         if(_character.getHealth() <= 0)
             endGame();
-            if(!_gameRunning)
-                _character.setState(CharacterState.Dead);
         
         return _gameRunning;
     }
