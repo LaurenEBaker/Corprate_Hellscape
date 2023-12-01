@@ -10,20 +10,14 @@ import com.corporate.hellscape.events.InputEvents.RelaxCharacterInputEvent;
 import com.corporate.hellscape.events.InputEvents.ShowerCharacterInputEvent;
 import com.corporate.hellscape.events.InputEvents.SleepCharacterInputEvent;
 
-
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class JavaFXController{
 
