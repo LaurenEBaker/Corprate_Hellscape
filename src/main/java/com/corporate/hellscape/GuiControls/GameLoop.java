@@ -121,9 +121,12 @@ public class GameLoop extends AnimationTimer {
 
         _lastTimestamp = now;
 
-        //TODO: Check for game not running no more
+        //Stop the simulation
+        if(!_hellscape.getGameRunning()){
+            stop();
+            _hellscape.getCharacter().setState(CharacterState.Dead);
+        }
 
-        
         _hellscape.SimulateOnce();
 
         
@@ -133,6 +136,7 @@ public class GameLoop extends AnimationTimer {
             _parentController.showLogMessage(message);
 
         updateProgressBar(_hellscape.getCharacter());
+
         updateAnimationOnState(_hellscape.getCharacter());
        
          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd HH:mm:ss");

@@ -57,6 +57,7 @@ public class Hellscape {
 
     public Character getCharacter() { return _character; }
     public LocalDateTime getGameTime() { return _gameTime; }
+    public boolean getGameRunning(){return _gameRunning;}
 
     public void logMessage(String message) { _messages.add(message); }
 
