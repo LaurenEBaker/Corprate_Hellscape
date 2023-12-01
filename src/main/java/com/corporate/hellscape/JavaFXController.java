@@ -43,7 +43,6 @@ public class JavaFXController{
     public ProgressBar healthBar;
     @FXML
     public ProgressBar hungerBar;
-    public double hungerProgress = 1.0;
     @FXML
     public ProgressBar stressBar;
     @FXML
@@ -110,9 +109,6 @@ public class JavaFXController{
 
         timeline.setCycleCount(5);
         timeline.play();
-
-        hungerBar.setProgress(hungerProgress);
-        hungerProgress -= 0.1;
     }
 
     public void sleepButtonClicked(ActionEvent event) throws IOException {
