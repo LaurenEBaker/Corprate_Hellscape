@@ -22,7 +22,7 @@ import com.corporate.hellscape.character.Character;
 
 public class Hellscape {
 
-    private Character _character = new Character("Hellscape");
+    private Character _character = new Character("Johnny Slaverton");
 
     private LocalDateTime _gameTime = LocalDateTime.of(
         LocalDate.of(2099, 1, 1),

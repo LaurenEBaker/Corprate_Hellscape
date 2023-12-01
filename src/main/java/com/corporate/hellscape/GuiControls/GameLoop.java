@@ -1,7 +1,7 @@
 package com.corporate.hellscape.GuiControls;
 
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.HashMap;
 import java.time.format.DateTimeFormatter;
 
 import com.corporate.hellscape.Hellscape;
@@ -23,7 +23,7 @@ public class GameLoop extends AnimationTimer {
     private long _animationTicks = 0;
     private JavaFXController _parentController;
 
-    private Map<Integer, Image[]> aniImages = hashAnimation();
+    private Map<CharacterState, Image[]> _aniImages = hashAnimation();
 
     public GameLoop(JavaFXController parentController, Hellscape hellscape) {
         super();
@@ -61,54 +61,59 @@ public class GameLoop extends AnimationTimer {
     }
 
     //Method that create a Concurrent hashmap of animation image object
-    private Map<Integer, Image[]> hashAnimation(){
+    private Map<CharacterState, Image[]> hashAnimation(){
 
         //A hashmap of image object contain animation image with enum orindal as key
-        aniImages = new ConcurrentHashMap<>() ;
+        Map<CharacterState, Image[]> aniImages = new HashMap<>();
 
         //Working
-        aniImages.put(CharacterState.Working.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/working1.png").toString()), 
-            new Image(getClass().getResource("/Animations/working2.png").toString())});
+        aniImages.put(CharacterState.Working, new Image[] {
+            new Image(getClass().getResource("/Animations/working1.png").toString()), 
+            new Image(getClass().getResource("/Animations/working2.png").toString()) });
 
         //Sleeping
-        aniImages.put(CharacterState.Sleeping.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/sleep1.png").toString()), 
-            new Image(getClass().getResource("/Animations/sleep2.png").toString())});
+        aniImages.put(CharacterState.Sleeping, new Image[] {
+            new Image(getClass().getResource("/Animations/sleep1.png").toString()), 
+            new Image(getClass().getResource("/Animations/sleep2.png").toString()) });
 
         //Showering
-        aniImages.put(CharacterState.Showering.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/cleaning1.png").toString()), 
-            new Image(getClass().getResource("/Animations/cleaning2.png").toString())});
+        aniImages.put(CharacterState.Showering, new Image[] {
+            new Image(getClass().getResource("/Animations/cleaning1.png").toString()), 
+            new Image(getClass().getResource("/Animations/cleaning2.png").toString()) });
 
         //Eating
-        aniImages.put(CharacterState.Eating.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/bite1.png").toString()), 
-            new Image(getClass().getResource("/Animations/bite2.png").toString())});
+        aniImages.put(CharacterState.Eating, new Image[] {
+            new Image(getClass().getResource("/Animations/bite1.png").toString()), 
+            new Image(getClass().getResource("/Animations/bite2.png").toString()) });
 
         //Chilling
-        aniImages.put(CharacterState.Chilling.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/reading1.png").toString()), 
-            new Image(getClass().getResource("/Animations/reading2.png").toString())});
+        aniImages.put(CharacterState.Chilling, new Image[] {
+            new Image(getClass().getResource("/Animations/reading1.png").toString()), 
+            new Image(getClass().getResource("/Animations/reading2.png").toString()) });
 
         //Praying
-        aniImages.put(CharacterState.Praying.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/praying1.png").toString()), 
-            new Image(getClass().getResource("/Animations/praying2.png").toString())});
+        aniImages.put(CharacterState.Praying, new Image[] {
+            new Image(getClass().getResource("/Animations/praying1.png").toString()), 
+            new Image(getClass().getResource("/Animations/praying2.png").toString()) });
 
         //Delegate
-        aniImages.put(CharacterState.Delegate.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/standing1.png").toString()), 
-            new Image(getClass().getResource("/Animations/standing2.png").toString())});
+        aniImages.put(CharacterState.Delegate, new Image[] {
+            new Image(getClass().getResource("/Animations/standing1.png").toString()), 
+            new Image(getClass().getResource("/Animations/standing2.png").toString()) });
 
         //Dead
-        aniImages.put(CharacterState.Dead.ordinal(), new Image[]{new Image(getClass().getResource("/Animations/dead.png").toString()), 
-            new Image(getClass().getResource("/Animations/dead.png").toString())});
-        
+        aniImages.put(CharacterState.Dead, new Image[] {
+            new Image(getClass().getResource("/Animations/dead.png").toString()), 
+            new Image(getClass().getResource("/Animations/dead.png").toString()) });
         
         return aniImages;
-
     }
 
     //Method to Connect the animation base on character state
     public void updateAnimationOnState(Character slave){
-
-        CharacterState currState = slave.getState();
-
-        _parentController.image.setImage(aniImages.get(currState.ordinal())[_animationTicks >= 4 ? 1 : 0]);
+        _parentController.image.setImage(
+            _aniImages.get(slave.getState())[
+                _animationTicks >= 4 ? 1 : 0 ] );
     }
 
     public void handle(long now) {
@@ -122,10 +127,7 @@ public class GameLoop extends AnimationTimer {
         _lastTimestamp = now;
 
         //TODO: Check for game not running no more
-
-        
         _hellscape.SimulateOnce();
-
         
         _parentController.setCharacterStateDisplay(_hellscape.getCharacter().getState());
 
