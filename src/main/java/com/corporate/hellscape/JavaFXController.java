@@ -87,28 +87,28 @@ public class JavaFXController{
         _hellscape.registerEvent(new FeedCharacterInputEvent());
 
         //Example Animation
-        image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
+        // image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
 
-        Timeline timeline = new Timeline();
-        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(100), new EventHandler<ActionEvent>() {
+        // Timeline timeline = new Timeline();
+        // timeline.getKeyFrames().add(new KeyFrame(Duration.millis(100), new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent event) {
-                image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite1.png"));
-            }
+        //     @Override
+        //     public void handle(ActionEvent event) {
+        //         image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite1.png"));
+        //     }
             
-        }));
-        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(200), new EventHandler<ActionEvent>() {
+        // }));
+        // timeline.getKeyFrames().add(new KeyFrame(Duration.millis(200), new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent event) {
-                image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
-            }
+        //     @Override
+        //     public void handle(ActionEvent event) {
+        //         image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
+        //     }
             
-        }));
+        // }));
 
-        timeline.setCycleCount(5);
-        timeline.play();
+        // timeline.setCycleCount(5);
+        // timeline.play();
     }
 
     public void sleepButtonClicked(ActionEvent event) throws IOException {
