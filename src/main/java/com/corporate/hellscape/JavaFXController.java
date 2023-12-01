@@ -10,20 +10,14 @@ import com.corporate.hellscape.events.InputEvents.RelaxCharacterInputEvent;
 import com.corporate.hellscape.events.InputEvents.ShowerCharacterInputEvent;
 import com.corporate.hellscape.events.InputEvents.SleepCharacterInputEvent;
 
-
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class JavaFXController{
 
@@ -84,35 +78,7 @@ public class JavaFXController{
     }
 
     public void eatButtonClicked(ActionEvent event){
-
         _hellscape.registerEvent(new FeedCharacterInputEvent());
-
-        //Example Animation
-        image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
-
-        Timeline timeline = new Timeline();
-        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(100), new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite1.png"));
-            }
-            
-        }));
-        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(200), new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                image.setImage(new Image("file:src/main/java/com/corporate/hellscape/Animations/bite2.png"));
-            }
-            
-        }));
-
-        timeline.setCycleCount(5);
-        timeline.play();
-
-        hungerBar.setProgress(hungerProgress);
-        hungerProgress -= 0.1;
     }
 
     public void sleepButtonClicked(ActionEvent event) throws IOException {
