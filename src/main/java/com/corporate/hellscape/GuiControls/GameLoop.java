@@ -143,9 +143,12 @@ public class GameLoop extends AnimationTimer {
 
         _lastTimestamp = now;
 
-        //TODO: Check for game not running no more
+        //Stop the simulation
+        if(!_hellscape.getGameRunning()){
+            stop();
+            _hellscape.getCharacter().setState(CharacterState.Dead);
+        }
 
-        
         _hellscape.SimulateOnce();
 
         
@@ -156,8 +159,6 @@ public class GameLoop extends AnimationTimer {
 
         updateProgressBar(_hellscape.getCharacter());
 
-        //Note to self: confirm that _gameRunning do become false once health reaches 0 //TODO: Delete before pushing
-        System.out.println(_hellscape.getCharacter().getHealth() + ": " + _hellscape.getGameRunning());
         updateAnimationOnState(_hellscape.getCharacter());
         timeline.setOnFinished(e -> _hellscape.SimulateOnce());
        
