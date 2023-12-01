@@ -2,7 +2,6 @@ package com.corporate.hellscape.GuiControls;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import javafx.util.Duration;
 import java.time.format.DateTimeFormatter;
 
 import com.corporate.hellscape.Hellscape;
@@ -11,7 +10,6 @@ import com.corporate.hellscape.character.Character;
 import com.corporate.hellscape.character.CharacterState;
 
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 
@@ -22,10 +20,10 @@ public class GameLoop extends AnimationTimer {
 
     private Hellscape _hellscape;
     private long _lastTimestamp = 0;
+    private long _animationTicks = 0;
     private JavaFXController _parentController;
 
     private Map<Integer, Image[]> aniImages = hashAnimation();
-    private Timeline timeline = new Timeline();
 
     public GameLoop(JavaFXController parentController, Hellscape hellscape) {
         super();
@@ -110,29 +108,7 @@ public class GameLoop extends AnimationTimer {
 
         CharacterState currState = slave.getState();
 
-        //Amount of time to run animation frame
-        int aniTime = 200;    
-        _parentController.image.setImage(aniImages.get(currState.ordinal())[1]);
-        
-        
-
-        // System.out.println("1st frame");
-        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(aniTime), e ->{
-            _parentController.image.setImage(aniImages.get(currState.ordinal())[1]);
-        }));
-
-        timeline.setDelay(Duration.millis(100));
-
-        // System.out.println("2nd frame");
-        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(aniTime + 100), e ->{
-            _parentController.image.setImage(aniImages.get(currState.ordinal())[0]);
-        }));
-
-        timeline.setCycleCount(3);
-        timeline.play();
-
-        
-
+        _parentController.image.setImage(aniImages.get(currState.ordinal())[_animationTicks >= 4 ? 1 : 0]);
     }
 
     public void handle(long now) {
@@ -140,6 +116,8 @@ public class GameLoop extends AnimationTimer {
         //Only run a simulation pass if enough real-world time has passed
         if(!(_lastTimestamp == 0 || _lastTimestamp + SIMULATION_CYCLE_TIME <= now)) 
             return;
+
+        _animationTicks = (_animationTicks + 1) % 9;
 
         _lastTimestamp = now;
 
@@ -156,7 +134,6 @@ public class GameLoop extends AnimationTimer {
 
         updateProgressBar(_hellscape.getCharacter());
         updateAnimationOnState(_hellscape.getCharacter());
-        timeline.setOnFinished(e -> _hellscape.SimulateOnce());
        
          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd HH:mm:ss");
          String formattedDateTime = _hellscape.getGameTime().format(formatter);
