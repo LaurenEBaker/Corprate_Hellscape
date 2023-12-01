@@ -224,7 +224,7 @@
             <Image url="@Animations/pixeldude.png" />
          </image>
       </ImageView>
-      <Label fx:id="dayCountLabel" layoutX="10.0" layoutY="10.0" prefHeight="70.0" prefWidth="250.0" textFill="WHITE">
+      <Label fx:id="dayCountLabel" layoutX="10.0" layoutY="10.0" prefHeight="70.0" prefWidth="250.0">
          <font>
             <Font name="Microsoft PhagsPa Bold" size="25.0" />
          </font>

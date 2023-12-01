@@ -40,25 +40,25 @@ public class GameLoop extends AnimationTimer {
         //Link up stat progress bar here to character stat by dividing with (double)100.
         _parentController.healthBar.setProgress(slave.getHealth()/100.0);
         if (slave.getHealth()<50) {_parentController.healthBar.setStyle( "-fx-accent: red; " +  "-fx-border-color: #c0392b; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.healthBar.setStyle( "-fx-accent: green; ");}
+        else {_parentController.healthBar.setStyle( "-fx-accent:  rgb(25,255,0); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
         _parentController.hungerBar.setProgress(slave.getHunger()/100.0);
         if (slave.getHunger()>50) {_parentController.hungerBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.hungerBar.setStyle( "-fx-accent: #00CED1; ");}
+        else {_parentController.hungerBar.setStyle( "-fx-accent:  rgb(0,225,245); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
         _parentController.stressBar.setProgress(slave.getStress()/100.0);
         if (slave.getStress()>50) {_parentController.stressBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.stressBar.setStyle( "-fx-accent: #00CED1; ");}
+        else {_parentController.stressBar.setStyle( "-fx-accent:  rgb(0,225,245); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
         _parentController.staminaBar.setProgress(slave.getStamina()/100.0);
         if (slave.getStamina()<50) {_parentController.staminaBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.staminaBar.setStyle( "-fx-accent: #00CED1; ");}
+        else {_parentController.staminaBar.setStyle( "-fx-accent:  rgb(0,225,245); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
         _parentController.hygieneBar.setProgress(slave.getHygiene()/100.0);
         if (slave.getHygiene()<50) {_parentController.hygieneBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.hygieneBar.setStyle( "-fx-accent: #00CED1; ");}
+        else {_parentController.hygieneBar.setStyle( "-fx-accent:  rgb(0,225,245); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
         _parentController.funBar.setProgress(slave.getFun()/100.0);
         if (slave.getFun()<50) {_parentController.funBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.funBar.setStyle( "-fx-accent: #00CED1; ");}
+        else {_parentController.funBar.setStyle( "-fx-accent:  rgb(0,225,245); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
         _parentController.workLoadBar.setProgress(slave.getWorkload()/100.0);
         if (slave.getWorkload()>50) {_parentController.workLoadBar.setStyle( "-fx-accent: red; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.workLoadBar.setStyle( "-fx-accent: #00CED1; ");}
+        else {_parentController.workLoadBar.setStyle( "-fx-accent:  rgb(0,225,245); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
 
     }
 
@@ -111,9 +111,7 @@ public class GameLoop extends AnimationTimer {
         CharacterState currState = slave.getState();
 
         //Amount of time to run animation frame
-        int aniTime = 200;    
-        _parentController.image.setImage(aniImages.get(currState.ordinal())[1]);
-        
+        int aniTime = 250;
         
 
         // System.out.println("1st frame");
@@ -124,7 +122,7 @@ public class GameLoop extends AnimationTimer {
         timeline.setDelay(Duration.millis(100));
 
         // System.out.println("2nd frame");
-        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(aniTime + 100), e ->{
+        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(aniTime + 250), e ->{
             _parentController.image.setImage(aniImages.get(currState.ordinal())[0]);
         }));
 
