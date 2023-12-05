@@ -8,7 +8,7 @@ public class RandomEvent extends TimedEvent{
 
     public RandomEvent(Hellscape hellscape) {
 		Random ran = new Random();
-		SetDelay(ran.nextInt(120), hellscape);
+		SetDelay(ran.nextInt(900), hellscape);
 	}
 
 	protected void triggerAction(Hellscape hellscape) {

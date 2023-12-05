@@ -6,7 +6,7 @@ import com.corporate.hellscape.character.CharacterState;
 
 public class ShowerCharacterInputEvent extends InputEvent {
 
-    public ShowerCharacterInputEvent(){ super("shower", CharacterState.Showering, 60); }
+    public ShowerCharacterInputEvent(){ super("shower", CharacterState.Showering, 600); }
 
     protected void inputAction(Hellscape hellscape) {
 

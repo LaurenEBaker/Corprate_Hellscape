@@ -50,11 +50,18 @@ public class Character {
     //Setter Funtion
 
     //Only allowed to set the state if we're at idle
-    public void setState(CharacterState state) { if(!isBusy()) State = state; }
+    public void setState(CharacterState state) { if(!isBusy() || state == CharacterState.Dead) State = state; }
     //Only allowed to clear the state if the state we're asking to clear is actually the one the character is in
     public void clearState(CharacterState state) { if(State == state) State = CharacterState.Working; }
     public void setName(String name)      { Name = name; }
-    public void setHealth(int health)     { Health = _clamp(health, 0, 100); }
+
+    public void setHealth(int health)     {
+        Health = _clamp(health, 0, 100);
+
+        if(Health == 0)
+            setState(CharacterState.Dead);
+    }
+
     public void setHunger(int hunger)     { Hunger = _clamp(hunger, 0, 100); }
     public void setStress(int stress)     { Stress = _clamp(stress, 0, 100); }
     public void setStamina(int stamina)   { Stamina = _clamp(stamina, 0, 100); }

@@ -6,10 +6,10 @@ import com.corporate.hellscape.events.StatCheckEvent;
 
 public class CheckHungerHighEvent extends StatCheckEvent {
 
-    public CheckHungerHighEvent(Hellscape hellscape) { super(30, hellscape); }
+    public CheckHungerHighEvent(Hellscape hellscape) { super(150, hellscape); }
 
     public void statTriggerAction(Hellscape hellscape) {
-        hellscape.getCharacter().decreaseHealthBy(3);
+        hellscape.getCharacter().decreaseHealthBy(1);
     }
 
     public boolean statIsAtThreshold(Character character) {

@@ -6,10 +6,10 @@ import com.corporate.hellscape.events.StatCheckEvent;
 
 public class CheckHygeneLowEvent extends StatCheckEvent {
 
-    public CheckHygeneLowEvent(Hellscape hellscape) { super(30, hellscape); }
+    public CheckHygeneLowEvent(Hellscape hellscape) { super(150, hellscape); }
 
     public void statTriggerAction(Hellscape hellscape) {
-        hellscape.getCharacter().decreaseHealthBy(2);
+        hellscape.getCharacter().decreaseHealthBy(1);
     }
 
     public boolean statIsAtThreshold(Character character) {

@@ -6,7 +6,7 @@ import com.corporate.hellscape.Hellscape;
 
 public class SleepCharacterInputEvent extends InputEvent {
 
-    public SleepCharacterInputEvent() { super("sleep", CharacterState.Sleeping, 60); }
+    public SleepCharacterInputEvent() { super("sleep", CharacterState.Sleeping, 2400); }
 
     protected void inputAction(Hellscape hellscape) {
 
