@@ -6,7 +6,7 @@ import com.corporate.hellscape.character.CharacterState;
 
 public class RelaxCharacterInputEvent extends InputEvent {
 
-    public RelaxCharacterInputEvent(){ super("relax", CharacterState.Chilling, 60); }
+    public RelaxCharacterInputEvent(){ super("relax", CharacterState.Chilling, 45); }
 
     protected void inputAction(Hellscape hellscape) {
 
