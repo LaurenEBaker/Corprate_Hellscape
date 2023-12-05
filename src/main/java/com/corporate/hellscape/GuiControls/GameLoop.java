@@ -38,37 +38,37 @@ public class GameLoop extends AnimationTimer {
         _parentController.healthBar.setProgress(slave.getHealth() / 100.0);
         _parentController.healthBar.setStyle(slave.getHealth() < 50
             ? "-fx-accent: red; -fx-border-color: #c0392b; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
-            : "-fx-accent: green;" );
+            : "-fx-accent:  rgb(25,255,0); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);" );
 
         _parentController.hungerBar.setProgress(slave.getHunger() / 100.0);
         _parentController.hungerBar.setStyle(slave.getHunger() > 50
             ? "-fx-accent: yellow; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
-            : "-fx-accent: #00CED1; " );
+            : "-fx-accent:  rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);" );
 
         _parentController.stressBar.setProgress(slave.getStress() / 100.0);
         _parentController.stressBar.setStyle(slave.getStress() > 50
             ? "-fx-accent: yellow; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
-            : "-fx-accent: #00CED1; " );
+            : "-fx-accent:  rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);" );
 
         _parentController.staminaBar.setProgress(slave.getStamina() / 100.0);
         _parentController.staminaBar.setStyle(slave.getStamina() > 50
             ? "-fx-accent: yellow; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
-            : "-fx-accent: #00CED1; " );
+            : "-fx-accent:  rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);" );
 
         _parentController.hygieneBar.setProgress(slave.getHygiene() / 100.0);
         _parentController.hygieneBar.setStyle(slave.getHygiene() < 50
             ? "-fx-accent: yellow; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
-            : "-fx-accent: #00CED1; " );
+            : "-fx-accent:  rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);" );
 
         _parentController.funBar.setProgress(slave.getFun() / 100.0);
         _parentController.funBar.setStyle(slave.getFun() < 50
             ? "-fx-accent: yellow; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
-            : "-fx-accent: #00CED1; " );
+            : "-fx-accent:  rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);" );
 
         _parentController.workLoadBar.setProgress(slave.getFun() / 100.0);
         _parentController.workLoadBar.setStyle(slave.getFun() > 50
             ? "-fx-accent: red; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
-            : "-fx-accent: #00CED1; " );
+            : "-fx-accent:  rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);" );
     }
 
     //Method that create a Concurrent hashmap of animation image object
