@@ -65,8 +65,8 @@ public class GameLoop extends AnimationTimer {
             ? "-fx-accent: yellow; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
             : "-fx-accent:  rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);" );
 
-        _parentController.workLoadBar.setProgress(slave.getFun() / 100.0);
-        _parentController.workLoadBar.setStyle(slave.getFun() > 50
+        _parentController.workLoadBar.setProgress(slave.getWorkload() / 100.0);
+        _parentController.workLoadBar.setStyle(slave.getWorkload() > 50
             ? "-fx-accent: red; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
             : "-fx-accent:  rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);" );
     }
