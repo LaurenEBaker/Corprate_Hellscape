@@ -51,7 +51,7 @@ public class GameLoop extends AnimationTimer {
             : "-fx-accent:  rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);" );
 
         _parentController.staminaBar.setProgress(slave.getStamina() / 100.0);
-        _parentController.staminaBar.setStyle(slave.getStamina() > 50
+        _parentController.staminaBar.setStyle(slave.getStamina() < 50
             ? "-fx-accent: yellow; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
             : "-fx-accent:  rgb(0,225,245); -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);" );
 
