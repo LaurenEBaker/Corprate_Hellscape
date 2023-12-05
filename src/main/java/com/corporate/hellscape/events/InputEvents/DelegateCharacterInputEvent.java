@@ -6,7 +6,7 @@ import com.corporate.hellscape.character.Character;
 
 public class DelegateCharacterInputEvent extends InputEvent {
 
-    public DelegateCharacterInputEvent() { super("Delegate", CharacterState.Delegate, 45); }
+    public DelegateCharacterInputEvent() { super("Delegate", CharacterState.Delegate, 180 ); }
 
     @Override
     protected void inputAction(Hellscape hellscape) {

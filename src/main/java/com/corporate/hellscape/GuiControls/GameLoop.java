@@ -94,8 +94,8 @@ public class GameLoop extends AnimationTimer {
 
         //Eating
         aniImages.put(CharacterState.Eating, new Image[] {
-            new Image(getClass().getResource("/Animations/bite1.png").toString()), 
-            new Image(getClass().getResource("/Animations/bite2.png").toString()) });
+            new Image(getClass().getResource("/Animations/eating1.png").toString()), 
+            new Image(getClass().getResource("/Animations/eating2.png").toString()) });
 
         //Chilling
         aniImages.put(CharacterState.Chilling, new Image[] {
@@ -109,8 +109,8 @@ public class GameLoop extends AnimationTimer {
 
         //Delegate
         aniImages.put(CharacterState.Delegate, new Image[] {
-            new Image(getClass().getResource("/Animations/standing1.png").toString()), 
-            new Image(getClass().getResource("/Animations/standing2.png").toString()) });
+            new Image(getClass().getResource("/Animations/delegate1.png").toString()), 
+            new Image(getClass().getResource("/Animations/delegate2.png").toString()) });
 
         //Dead
         aniImages.put(CharacterState.Dead, new Image[] {
@@ -133,13 +133,18 @@ public class GameLoop extends AnimationTimer {
         if(!(_lastTimestamp == 0 || _lastTimestamp + SIMULATION_CYCLE_TIME <= now)) 
             return;
 
-        _animationTicks = (_animationTicks + 1) % 90;
+        CharacterState preSimulationState = _hellscape.getCharacter().getState();
+
         _lastTimestamp = now;
         _hellscape.SimulateOnce();
         _parentController.setCharacterStateDisplay(_hellscape.getCharacter().getState());
 
         for(String message : _hellscape.getPendingMessages())
             _parentController.showLogMessage(message);
+
+        _animationTicks = _hellscape.getCharacter().getState() == preSimulationState
+            ? (_animationTicks + 1) % 90
+            : 0; //Reset animation if the state changed since the last cycle
 
         updateProgressBar(_hellscape.getCharacter());
         updateAnimationOnState(_hellscape.getCharacter());
