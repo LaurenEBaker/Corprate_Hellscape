@@ -6,14 +6,14 @@ import com.corporate.hellscape.character.CharacterState;
 
 public class RelaxCharacterInputEvent extends InputEvent {
 
-    public RelaxCharacterInputEvent(){ super("relax", CharacterState.Chilling, 900); }
+    public RelaxCharacterInputEvent(){ super("relax", CharacterState.Chilling, 400); }
 
     protected void inputAction(Hellscape hellscape) {
 
         Character character = hellscape.getCharacter();
         int oldFun = character.getFun();
 
-        character.increaseFunBy(5);
+        character.increaseFunBy(25);
 
         int newFun = character.getFun();
 

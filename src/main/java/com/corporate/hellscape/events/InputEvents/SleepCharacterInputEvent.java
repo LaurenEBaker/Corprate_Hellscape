@@ -6,14 +6,14 @@ import com.corporate.hellscape.Hellscape;
 
 public class SleepCharacterInputEvent extends InputEvent {
 
-    public SleepCharacterInputEvent() { super("sleep", CharacterState.Sleeping, 2400); }
+    public SleepCharacterInputEvent() { super("sleep", CharacterState.Sleeping, 340); }
 
     protected void inputAction(Hellscape hellscape) {
 
         Character character = hellscape.getCharacter();
         int oldStamina = character.getStamina();
 
-        character.increaseStaminaBy(5);;
+        character.increaseStaminaBy(25);;
 
         int newStamina = character.getStamina();
 
