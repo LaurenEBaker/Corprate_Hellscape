@@ -74,6 +74,11 @@ public class CLIApplication {
             character.getFun(),
             character.getHygiene(),
             character.getWorkload() ));
+
+        System.out.println(String.format(
+            "%s is %s",
+            character.getName(),
+            character.getState().toString() ));
     }
 
     private static void _printGameMessages(Hellscape hellscape) {

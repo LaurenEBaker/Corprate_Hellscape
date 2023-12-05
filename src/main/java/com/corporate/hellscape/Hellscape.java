@@ -14,11 +14,12 @@ import com.corporate.hellscape.events.StatCheckEvents.CheckHygeneLowEvent;
 import com.corporate.hellscape.events.StatCheckEvents.CheckSleepLowEvent;
 import com.corporate.hellscape.events.StatCheckEvents.CheckStressHighEvent;
 import com.corporate.hellscape.events.StatCheckEvents.CheckWorkHighEvent;
-import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseHygeneEvent;
-import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseStaminaEvent;
+import com.corporate.hellscape.events.TimedStatusEffectEvent.AlterHygieneEvent;
+import com.corporate.hellscape.events.TimedStatusEffectEvent.AlterStaminaEvent;
 import com.corporate.hellscape.events.TimedStatusEffectEvent.DecreaseWorkloadEvent;
-import com.corporate.hellscape.events.TimedStatusEffectEvent.IncreaseHungerEvent;
+import com.corporate.hellscape.events.TimedStatusEffectEvent.AlterHungerEvent;
 import com.corporate.hellscape.character.Character;
+import com.corporate.hellscape.character.CharacterState;
 
 public class Hellscape {
 
@@ -37,9 +38,9 @@ public class Hellscape {
     public Hellscape() {
 
         //Timers for affecting character base stats based on regular passage of time
-        _eventList.add(new IncreaseHungerEvent(this, _character));
-        _eventList.add(new DecreaseStaminaEvent(this));
-        _eventList.add(new DecreaseHygeneEvent(this));
+        _eventList.add(new AlterHungerEvent(this, _character));
+        _eventList.add(new AlterStaminaEvent(this));
+        _eventList.add(new AlterHygieneEvent(this));
         _eventList.add(new DecreaseWorkloadEvent(this));
 
         //Timers for regularly checking character stats for indirect effects
@@ -110,9 +111,9 @@ public class Hellscape {
         _removeDeletedEvents();
         _addNewlyCreatedEvents();
 
-        _gameTime = _gameTime.plusSeconds(1);
+        _gameTime = _gameTime.plusSeconds(2);
 
-        if(_character.getHealth() <= 0)
+        if(_character.getState() == CharacterState.Dead)
             endGame();
         
         return _gameRunning;

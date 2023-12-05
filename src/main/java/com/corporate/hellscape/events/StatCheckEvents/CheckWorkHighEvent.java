@@ -6,7 +6,7 @@ import com.corporate.hellscape.events.StatCheckEvent;
 
 public class CheckWorkHighEvent extends StatCheckEvent {
 
-    public CheckWorkHighEvent(Hellscape hellscape) { super(30, hellscape); }
+    public CheckWorkHighEvent(Hellscape hellscape) { super(100, hellscape); }
 
     public void statTriggerAction(Hellscape hellscape) {
         hellscape.getCharacter().increaseStress();

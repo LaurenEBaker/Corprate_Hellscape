@@ -6,7 +6,7 @@ import com.corporate.hellscape.character.CharacterState;
 
 public class FeedCharacterInputEvent extends InputEvent {
 
-    public FeedCharacterInputEvent() { super("eat", CharacterState.Eating, 45); }
+    public FeedCharacterInputEvent() { super("eat", CharacterState.Eating, 1200); }
 
     protected void inputAction(Hellscape hellscape) {
 

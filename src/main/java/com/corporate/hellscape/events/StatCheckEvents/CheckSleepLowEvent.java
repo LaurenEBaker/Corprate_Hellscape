@@ -6,7 +6,7 @@ import com.corporate.hellscape.events.StatCheckEvent;
 
 public class CheckSleepLowEvent extends StatCheckEvent {
 
-    public CheckSleepLowEvent(Hellscape hellscape) { super(30, hellscape); }
+    public CheckSleepLowEvent(Hellscape hellscape) { super(300, hellscape); }
 
     public void statTriggerAction(Hellscape hellscape) {
         hellscape.getCharacter().decreaseHealthBy(1);

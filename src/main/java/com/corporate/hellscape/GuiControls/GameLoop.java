@@ -10,13 +10,12 @@ import com.corporate.hellscape.character.Character;
 import com.corporate.hellscape.character.CharacterState;
 
 import javafx.animation.AnimationTimer;
-import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 
 
 public class GameLoop extends AnimationTimer {
 
-    private static long SIMULATION_CYCLE_TIME = 100000000;
+    private static long SIMULATION_CYCLE_TIME = 100000;
 
     private Hellscape _hellscape;
     private long _lastTimestamp = 0;
@@ -36,28 +35,40 @@ public class GameLoop extends AnimationTimer {
     public void updateProgressBar(Character slave){
 
         //Link up stat progress bar here to character stat by dividing with (double)100.
-        _parentController.healthBar.setProgress(slave.getHealth()/100.0);
-        if (slave.getHealth()<50) {_parentController.healthBar.setStyle( "-fx-accent: red; " +  "-fx-border-color: #c0392b; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.healthBar.setStyle( "-fx-accent:  rgb(25,255,0); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        _parentController.hungerBar.setProgress(slave.getHunger()/100.0);
-        if (slave.getHunger()>50) {_parentController.hungerBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.hungerBar.setStyle( "-fx-accent:  rgb(0,225,245); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        _parentController.stressBar.setProgress(slave.getStress()/100.0);
-        if (slave.getStress()>50) {_parentController.stressBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.stressBar.setStyle( "-fx-accent:  rgb(0,225,245); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        _parentController.staminaBar.setProgress(slave.getStamina()/100.0);
-        if (slave.getStamina()<50) {_parentController.staminaBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.staminaBar.setStyle( "-fx-accent:  rgb(0,225,245); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        _parentController.hygieneBar.setProgress(slave.getHygiene()/100.0);
-        if (slave.getHygiene()<50) {_parentController.hygieneBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.hygieneBar.setStyle( "-fx-accent:  rgb(0,225,245); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        _parentController.funBar.setProgress(slave.getFun()/100.0);
-        if (slave.getFun()<50) {_parentController.funBar.setStyle( "-fx-accent: yellow; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.funBar.setStyle( "-fx-accent:  rgb(0,225,245); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        _parentController.workLoadBar.setProgress(slave.getWorkload()/100.0);
-        if (slave.getWorkload()>50) {_parentController.workLoadBar.setStyle( "-fx-accent: red; " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
-        else {_parentController.workLoadBar.setStyle( "-fx-accent:  rgb(0,225,245); " + "-fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);");}
+        _parentController.healthBar.setProgress(slave.getHealth() / 100.0);
+        _parentController.healthBar.setStyle(slave.getHealth() < 50
+            ? "-fx-accent: red; -fx-border-color: #c0392b; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
+            : "-fx-accent: green;" );
 
+        _parentController.hungerBar.setProgress(slave.getHunger() / 100.0);
+        _parentController.hungerBar.setStyle(slave.getHunger() > 50
+            ? "-fx-accent: yellow; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
+            : "-fx-accent: #00CED1; " );
+
+        _parentController.stressBar.setProgress(slave.getStress() / 100.0);
+        _parentController.stressBar.setStyle(slave.getStress() > 50
+            ? "-fx-accent: yellow; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
+            : "-fx-accent: #00CED1; " );
+
+        _parentController.staminaBar.setProgress(slave.getStamina() / 100.0);
+        _parentController.staminaBar.setStyle(slave.getStamina() > 50
+            ? "-fx-accent: yellow; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
+            : "-fx-accent: #00CED1; " );
+
+        _parentController.hygieneBar.setProgress(slave.getHygiene() / 100.0);
+        _parentController.hygieneBar.setStyle(slave.getHygiene() < 50
+            ? "-fx-accent: yellow; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
+            : "-fx-accent: #00CED1; " );
+
+        _parentController.funBar.setProgress(slave.getFun() / 100.0);
+        _parentController.funBar.setStyle(slave.getFun() < 50
+            ? "-fx-accent: yellow; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
+            : "-fx-accent: #00CED1; " );
+
+        _parentController.workLoadBar.setProgress(slave.getFun() / 100.0);
+        _parentController.workLoadBar.setStyle(slave.getFun() > 50
+            ? "-fx-accent: red; -fx-control-inner-background: rgb(50,50,50); -fx-text-box-border: rgb(30,30,30);"
+            : "-fx-accent: #00CED1; " );
     }
 
     //Method that create a Concurrent hashmap of animation image object
@@ -113,7 +124,7 @@ public class GameLoop extends AnimationTimer {
     public void updateAnimationOnState(Character slave){
         _parentController.image.setImage(
             _aniImages.get(slave.getState())[
-                _animationTicks >= 4 ? 1 : 0 ] );
+                _animationTicks >= 45 ? 1 : 0 ] );
     }
 
     public void handle(long now) {
@@ -122,30 +133,25 @@ public class GameLoop extends AnimationTimer {
         if(!(_lastTimestamp == 0 || _lastTimestamp + SIMULATION_CYCLE_TIME <= now)) 
             return;
 
-        _animationTicks = (_animationTicks + 1) % 9;
-
+        _animationTicks = (_animationTicks + 1) % 90;
         _lastTimestamp = now;
-
-        //Stop the simulation
-        if(!_hellscape.getGameRunning()){
-            stop();
-            _hellscape.getCharacter().setState(CharacterState.Dead);
-        }
-
         _hellscape.SimulateOnce();
-        
         _parentController.setCharacterStateDisplay(_hellscape.getCharacter().getState());
 
         for(String message : _hellscape.getPendingMessages())
             _parentController.showLogMessage(message);
 
         updateProgressBar(_hellscape.getCharacter());
-
         updateAnimationOnState(_hellscape.getCharacter());
-       
-         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd HH:mm:ss");
-         String formattedDateTime = _hellscape.getGameTime().format(formatter);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd HH:mm:ss");
+        String formattedDateTime = _hellscape.getGameTime().format(formatter);
         _parentController.dayCountLabel.setText("Day "+formattedDateTime);
+
+        //Stop the simulation
+        if(!_hellscape.getGameRunning())
+            stop();
+
     }
 }
 
