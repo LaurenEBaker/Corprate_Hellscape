@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgb(32,32,32);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.corporate.hellscape.JavaFXController">
+<Pane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgb(32,32,32);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.corporate.hellscape.JavaFXController">
    <children>
       <VBox blendMode="SRC_ATOP" layoutX="950.0" layoutY="10.0" prefHeight="700.0" prefWidth="320.0" style="-fx-background-color: rgb(50,50,50); -fx-background-radius: 10;">
          <children>
@@ -128,13 +128,20 @@
                   </ProgressBar>
                </children>
             </HBox>
-            <Button fx:id="exitGameButton" mnemonicParsing="false" onAction="#exitGameButtonClicked" prefHeight="70.0" prefWidth="245.0" text="Exit Game">
+            <Button fx:id="exitGameButton" contentDisplay="RIGHT" graphicTextGap="25.0" mnemonicParsing="false" onAction="#exitGameButtonClicked" prefHeight="70.0" prefWidth="245.0" text="Exit Game">
                <font>
                   <Font name="Microsoft PhagsPa Bold" size="25.0" />
                </font>
                <VBox.margin>
                   <Insets left="37.5" right="37.5" top="50.0" />
                </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Animations/exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Label fx:id="characterStateLabel" text="">
                <VBox.margin>
@@ -149,7 +156,7 @@
       </VBox>
       <HBox layoutX="10.0" layoutY="599.0" prefHeight="100.0" prefWidth="930.0" style="-fx-background-color: rgb(50,50,50); -fx-background-radius: 10;">
          <children>
-            <Button fx:id="workButton" mnemonicParsing="false" onAction="#workButtonClicked" prefHeight="100.0" prefWidth="225.0" style="-fx-background-color: rgb(100,100,100);" stylesheets="@Animations/button.css" text="Delegate" textFill="WHITE">
+            <Button fx:id="workButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#workButtonClicked" prefHeight="100.0" prefWidth="225.0" style="-fx-background-color: rgb(100,100,100);" stylesheets="@Animations/button.css" text="Delegate" textFill="WHITE">
                <font>
                   <Font name="Microsoft PhagsPa Bold" size="15.0" />
                </font>
@@ -160,6 +167,13 @@
                   <String fx:value="button" />
                   <String fx:value="button" />
                </styleClass>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Animations/delegate.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Button fx:id="eatButton" contentDisplay="TOP" graphicTextGap="0.0" mnemonicParsing="false" onAction="#eatButtonClicked" prefHeight="100.0" prefWidth="225.0" style="-fx-background-color: rgb(100,100,100);" text="Eat" textFill="WHITE" wrapText="true">
                <font>
@@ -224,7 +238,7 @@
             <Image url="@Animations/pixeldude.png" />
          </image>
       </ImageView>
-      <Label fx:id="dayCountLabel" layoutX="10.0" layoutY="10.0" prefHeight="70.0" prefWidth="250.0" textFill="WHITE">
+      <Label fx:id="dayCountLabel" layoutX="10.0" layoutY="10.0" prefHeight="70.0" prefWidth="250.0">
          <font>
             <Font name="Microsoft PhagsPa Bold" size="25.0" />
          </font>
